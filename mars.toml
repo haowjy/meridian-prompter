@@ -1,11 +1,10 @@
 [package]
 name = "meridian-prompter"
-version = "0.1.11"
+version = "0.1.12"
 description = "Workflow for creating and improving LLM agents and skills from first principles — research-backed design principles, writers, reviewers, and testers."
 
 [dependencies.meridian-base]
 url = "https://github.com/meridian-flow/meridian-base"
-
 skills = [
     "meridian-spawn",
     "intent-modeling",
