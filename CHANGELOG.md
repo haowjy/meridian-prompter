@@ -4,6 +4,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- `prompt-dev` opening now centers reliable agent behavior, context use, and model/harness capability tradeoffs.
+
 ## [0.1.10] - 2026-05-04
 
 ### Changed

@@ -5,18 +5,18 @@ path = "."
 
 [dependencies.meridian-base]
 url = "https://github.com/meridian-flow/meridian-base"
-version = "v0.2.4"
-commit = "21f60089004e0fea8840a2f722c20098144450ce"
+version = "v0.2.6"
+commit = "78c3b007fe4570c01c82da0b69710036784c8132"
 
 [items."agent/prompt-dev"]
 source = "_self"
 kind = "agent"
-source_checksum = "sha256:b8585f2fe2aaf7355ebfe3489905e4e3352b860605f47f035135d48166548d75"
+source_checksum = "sha256:3cacf477a1d6ab623a3581bd1627d058d085d15565da2b6373a00b660599da24"
 
 [[items."agent/prompt-dev".outputs]]
 target_root = ".mars"
 dest_path = "agents/prompt-dev.md"
-installed_checksum = "sha256:b8585f2fe2aaf7355ebfe3489905e4e3352b860605f47f035135d48166548d75"
+installed_checksum = "sha256:3cacf477a1d6ab623a3581bd1627d058d085d15565da2b6373a00b660599da24"
 
 [items."agent/prompt-reviewer"]
 source = "_self"
@@ -104,12 +104,12 @@ installed_checksum = "sha256:4f99df398c252ee92a38b2b109568634493ee71711d852ccb01
 [items."skill/prompt-principles"]
 source = "_self"
 kind = "skill"
-source_checksum = "sha256:5d0260a69d18d246c0aeb2b8e122e20c72ae0fd772b3f8bc5c34e3af97eb23fd"
+source_checksum = "sha256:9e90ba11500d5cc1761fd7979c23fc2d2b0ae7a189f4c456223cddd2427fc0fd"
 
 [[items."skill/prompt-principles".outputs]]
 target_root = ".mars"
 dest_path = "skills/prompt-principles"
-installed_checksum = "sha256:5d0260a69d18d246c0aeb2b8e122e20c72ae0fd772b3f8bc5c34e3af97eb23fd"
+installed_checksum = "sha256:9e90ba11500d5cc1761fd7979c23fc2d2b0ae7a189f4c456223cddd2427fc0fd"
 
 [items."skill/prompt-review"]
 source = "_self"
