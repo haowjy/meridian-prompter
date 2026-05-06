@@ -5,8 +5,8 @@ path = "."
 
 [dependencies.meridian-base]
 url = "https://github.com/meridian-flow/meridian-base"
-version = "v0.2.6"
-commit = "78c3b007fe4570c01c82da0b69710036784c8132"
+version = "v0.2.7"
+commit = "2e8cf6692abeb4158dd4a32f5a373eebd6ca608f"
 
 [items."agent/prompt-dev"]
 source = "_self"
@@ -93,13 +93,13 @@ installed_checksum = "sha256:dd619a72aaa413da03c4ef28cc2dba26965b8bae34e5934edc1
 [items."skill/meridian-spawn"]
 source = "meridian-base"
 kind = "skill"
-version = "v0.2.4"
-source_checksum = "sha256:4f99df398c252ee92a38b2b109568634493ee71711d852ccb016ddd798f4bdb2"
+version = "v0.2.7"
+source_checksum = "sha256:2885283bc0533695e06b36d1f914365168ee07c544160b556d4b3ac66de29955"
 
 [[items."skill/meridian-spawn".outputs]]
 target_root = ".mars"
 dest_path = "skills/meridian-spawn"
-installed_checksum = "sha256:4f99df398c252ee92a38b2b109568634493ee71711d852ccb016ddd798f4bdb2"
+installed_checksum = "sha256:2885283bc0533695e06b36d1f914365168ee07c544160b556d4b3ac66de29955"
 
 [items."skill/prompt-principles"]
 source = "_self"
