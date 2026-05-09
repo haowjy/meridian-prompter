@@ -1,5 +1,6 @@
 ---
 name: prompt-principles
+type: principle
 description: >
   Load when writing, reviewing, or improving any prompt artifact.
   Research-backed principles across four levels: prompt craft, skill

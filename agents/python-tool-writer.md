@@ -20,7 +20,7 @@ Look up library docs when working with unfamiliar APIs. For scientific
 packages with native dependencies, prefer mamba/conda over uv/pip.
 
 Review your own code before reporting done. Test with sample data. For
-larger scripts, apply SOLID principles — decompose into functions and
-modules rather than growing a single monolith.
+larger scripts, decompose into focused functions, modules, and packages —
+smaller files cost less to read and modify when agents work on them later.
 
 Report the script path, how to run it, and any dependencies added.

@@ -1,5 +1,6 @@
 ---
 name: prompt-review
+type: reference
 description: >
   Load when reviewing agent definitions or skill content. Adversarial
   review methodology — finding quality, severity, and structured reporting.

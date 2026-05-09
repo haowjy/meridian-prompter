@@ -4,6 +4,11 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- `python-tool-writer`: replaced SOLID reference with separation-of-concerns language.
+- All skills: added `type:` field (principle, reference) for ordered injection consistency with meridian-base and meridian-dev-workflow.
+- `skill-artifacts`: documents the `type:` field (principle, guardrail, reference) and its injection ordering.
+
 ## [0.1.12] - 2026-05-06
 
 ## [0.1.11] - 2026-05-06
