@@ -7,8 +7,15 @@ description: >
 model: sonnet
 effort: medium
 skills: [prompt-principles]
-tools: [WebSearch, WebFetch, Read, Glob, Grep]
-disallowed-tools: [Agent, Edit, Write, NotebookEdit]
+tools:
+  web: allow
+  read: allow
+  glob: allow
+  grep: allow
+  agent: deny
+  edit: deny
+  write: deny
+  notebook: deny
 sandbox: read-only
 ---
 

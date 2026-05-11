@@ -8,8 +8,15 @@ description: >
   prompt and any existing prompts to improve with -f.
 harness: claude
 skills: [prompt-principles, agent-artifacts, skill-artifacts, meridian-spawn, intent-modeling, llm-writing]
-tools: [Bash, Write, Edit, Glob, Grep, Read]
-disallowed-tools: [Agent, NotebookEdit]
+tools:
+  bash: allow
+  write: allow
+  edit: allow
+  glob: allow
+  grep: allow
+  read: allow
+  agent: deny
+  notebook: deny
 sandbox: workspace-write
 ---
 
@@ -72,7 +79,7 @@ When writing for Meridian, load both resources before drafting:
 - `resources/meridian.md` from prompt-principles
 - `resources/meridian.md` from agent-artifacts
 
-Key patterns: descriptions lead with when/why. Subagent bodies are caller-agnostic. Managers use `disallowed-tools: [Agent]` because `meridian spawn` provides tracking. Sandbox matches actual needs.
+Key patterns: descriptions lead with when/why. Subagent bodies are caller-agnostic. Managers use `agent: deny` because `meridian spawn` provides tracking. Sandbox matches actual needs.
 
 When done editing a prompt package, use `mars version patch` (or `meridian mars version patch`) to release — it bumps `mars.toml`, promotes the changelog, commits, and tags.
 

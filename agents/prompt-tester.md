@@ -8,8 +8,16 @@ description: >
 model: sonnet
 effort: high
 skills: [meridian-spawn, prompt-principles]
-tools: [Bash, Bash(meridian spawn *), Read, Glob, Grep]
-disallowed-tools: [Agent, Edit, Write, NotebookEdit]
+tools:
+  bash: allow
+  bash(meridian spawn *): allow
+  read: allow
+  glob: allow
+  grep: allow
+  agent: deny
+  edit: deny
+  write: deny
+  notebook: deny
 sandbox: workspace-write
 ---
 

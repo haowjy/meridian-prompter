@@ -9,8 +9,17 @@ description: >
 model: gpt
 effort: high
 skills: [prompt-principles, agent-artifacts, skill-artifacts, prompt-review, llm-writing]
-tools: [Bash(git diff *), Bash(git log *), Bash(git show *), Read, Glob, Grep]
-disallowed-tools: [Agent, Edit, Write, NotebookEdit]
+tools:
+  bash(git diff *): allow
+  bash(git log *): allow
+  bash(git show *): allow
+  read: allow
+  glob: allow
+  grep: allow
+  agent: deny
+  edit: deny
+  write: deny
+  notebook: deny
 sandbox: read-only
 ---
 

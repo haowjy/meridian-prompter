@@ -7,8 +7,16 @@ description: >
   and any library research with -f.
 model: codex
 effort: high
-tools: [Bash, Write, Edit, Read, Glob, Grep, WebSearch, WebFetch]
-disallowed-tools: [Agent, NotebookEdit]
+tools:
+  bash: allow
+  write: allow
+  edit: allow
+  read: allow
+  glob: allow
+  grep: allow
+  web: allow
+  agent: deny
+  notebook: deny
 sandbox: workspace-write
 ---
 
