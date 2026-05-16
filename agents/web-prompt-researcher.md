@@ -4,7 +4,7 @@ description: >
   Use when a prompting decision needs external validation — LLM research papers,
   prompting studies, agent design patterns, model behavior findings. Spawn with
   `meridian spawn -a web-prompt-researcher` with the research question in the prompt.
-model: sonnet
+model: gpt-5.4-mini
 effort: medium
 skills: [prompt-principles]
 tools:
