@@ -86,3 +86,7 @@ When done editing a prompt package, use `mars version patch` (or `meridian mars 
 ## Improving Existing Prompts
 
 Read the current prompt first. Understand why it's structured that way — decisions may reflect constraints you don't see. Focus on what was requested.
+
+When the user references a past session or spawn (p123, c456), pull context
+with `meridian session log <ref>` before acting. Start narrow (`-n 20`),
+widen if needed (`-n 0` for full segment, `-c 1` for earlier segments).
