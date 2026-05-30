@@ -2,6 +2,36 @@
 
 How to design a single agent's role and prompt.
 
+## Light Bodies, Fat Skills
+
+Agent bodies define the cognitive highway — which lane of thinking this
+agent operates in. Skills carry the knowledge that feeds that lane.
+
+**Keep agent bodies thin.** The body says what the agent does, its core
+constraints, and how it engages. It does not carry methodology, reference
+material, or detailed procedures. Those belong in skills.
+
+**Make skills fat and decomposed.** Skills carry the bulk of domain
+knowledge, structured for progressive loading. An agent picks up only the
+arteries it needs — body for principles, resources for detailed how-to.
+
+**Why this split works:**
+- Light bodies are easy to scan, review, and maintain
+- Fat skills serve multiple agents — one investment, many consumers
+- Progressive loading means depth without pollution
+- Agent body changes are role changes; skill changes are knowledge changes.
+  They evolve at different rates.
+
+**Signs the body is too heavy:**
+- Body exceeds 100 lines with methodology that other agents could use
+- You're duplicating guidance that exists in a skill
+- The body teaches HOW to do something rather than WHAT to do
+
+**Signs a skill should absorb body content:**
+- Two agents carry the same methodology inline
+- The guidance is stable knowledge, not role-specific behavior
+- Extracting it would make both agents lighter without losing capability
+
 ## Single Focus
 
 Each agent does one job well. The context window is the attention budget — multiple responsibilities compete for it.
@@ -100,6 +130,26 @@ The cognitive mode determines what the agent needs:
 
 When routing is by domain, agents fight over boundary cases ("is this React file frontend or backend?"). When routing is by cognitive mode, the question becomes "does this task need aesthetic judgment?" — clearer and more stable.
 
+### The Model Shapes the Highway
+
+The model is part of the cognitive mode design, not just a cost decision.
+Each model has personality biases that shift where the cognitive highway
+naturally goes:
+
+- A conversational model (strong intent inference, interactive) bends
+  the highway toward dialogue and ambiguity resolution — good for
+  primaries working with users.
+- A faithful executor (instruction-following, fast) bends toward direct
+  execution against clear specs — good for builders.
+- A strong reasoner (deep analysis, evaluation depth) bends toward
+  thorough judgment — good for reviewers and architects.
+
+Same prompt, different model → different cognitive road. When designing
+an agent, the model choice is as much a design decision as the prompt
+itself. An interactive lead on a fast executor model loses the
+conversational depth. A builder on a deep reasoning model overthinks
+simple tasks.
+
 ### Discovering Cognitive Modes
 
 The principle says "route by cognitive mode" — but how do you find the modes for a new domain? Research, not intuition.
@@ -115,6 +165,25 @@ Before designing a multi-agent system, investigate how the domain's work is actu
 4. **Collapse test** — if you merged two proposed agents back into one, would it need to context-switch between incompatible evaluation criteria? Brainstorming's "explore everything" vs outlining's "commit to structure" are incompatible stances — holding both in one context window degrades both. If collapsing doesn't create conflict, the split isn't justified.
 
 Tasks that one person can do alone are often the *best* candidates for multi-agent decomposition — the cognitive mode shifts are already there, just implicit. Making them explicit puts fresh attention budget on each mode.
+
+### Agent vs Skill for Cognitive Shifts
+
+Not every cognitive shift needs a new agent. Two decision points:
+
+1. **Does it need a different model?** Different models bend the cognitive
+   highway differently. If the shift needs a model with different
+   personality — spawn a new agent.
+2. **Does it need fresh context?** If the current context is cluttered
+   or the shift is incompatible with what's loaded — spawn. If the
+   current context supports both — load a mode-shift skill.
+
+Mode-shift skills (`/handoff`, `/prototype`, `/zoom-out`) pivot what
+the agent is doing within its current cognitive lane. The agent stays,
+the lens changes. This is cheaper than a spawn and keeps accumulated
+context.
+
+Spawn when the mode shift would fight the current context or the current
+model.
 
 ## Generic Over Specialized
 

@@ -36,9 +36,10 @@ See `resources/prompt-level.md` for detail.
 When to extract shared knowledge into a skill vs keeping it in an agent body.
 
 - **Reuse threshold** — If 2+ agents need the same knowledge, extract to a skill. If only one agent uses it, keep it in the body.
-- **Progressive disclosure** — Metadata (~100 words) always loaded; body (<500 lines) on trigger; bundled resources as needed.
+- **Loading mechanics** — `load` (always in context), `available` (name visible, loaded on demand), `model-invocable` (enables the loading mechanism). Available-list nudges are the primary discovery mechanism; global keyword matching alone rarely works.
+- **Skill types** — `principle` (shapes thinking, always loaded), `guardrail` (safety, always loaded), `mode-shift` (pivots activity, on demand), `checkpoint` (gates transitions), `reference` (how-to, on demand).
+- **Decompose for progressive loading** — Body routes to resources. Each resource independently useful. Agents pick up only the arteries they need.
 - **Skills shape, agents act** — Skills provide knowledge and methodology. They don't run independently or make decisions.
-- **Domain organization** — When a skill supports multiple variants (frameworks, platforms), organize by variant with the body routing to the right reference.
 - **Separate mechanism from methodology** — A skill is either how to operate a tool or what to do with it, not both. Separation enables reuse across use cases.
 
 See `resources/skill-level.md` for detail.
@@ -47,13 +48,12 @@ See `resources/skill-level.md` for detail.
 
 How to design a single agent's role and prompt.
 
+- **Light bodies, fat skills** — Agent bodies define the cognitive highway (which lane of thinking). Skills carry the knowledge that feeds it. Keep bodies thin; make skills fat and decomposed.
 - **Single focus** — Each agent does one job well. Context window is the attention budget; multiple responsibilities compete for it.
 - **No role identity** — Skip personas ("you are a senior engineer"). PRISM research shows personas interfere with knowledge retrieval. Describe behavior directly.
-- **Context engineering** — A focused window produces better attention than a sprawling one. Fresh spawn = fresh attention budget.
-- **Agent owns outputs** — The agent produces artifacts and decisions. Skills inform how; the agent decides what.
-- **3-5 function limit** — Single agents handle 3-5 distinct functions before multi-agent coordination helps.
+- **Route by cognitive mode** — Decompose agents by thinking type (faithful execution vs aesthetic judgment vs ambiguity handling), not by file type or domain. The model shapes the highway — its personality biases bend the cognitive lane toward dialogue, execution, or deep analysis.
+- **Agent vs skill for cognitive shifts** — Different model needed or fresh context needed → new agent. Same model, current context works → mode-shift skill.
 - **Descriptions serve callers** — Teach usage: when to use, how to invoke, what to pass, how to prompt, what to expect.
-- **Route by cognitive mode** — Decompose agents by thinking type (faithful execution vs aesthetic judgment vs ambiguity handling), not by file type or domain. Discover modes through research: ask the user, study how professionals do the work, find where solo practitioners shift stance and where teams put person-boundaries.
 - **Generic over specialized** — If specialization lives entirely in the caller's prompt, keep the agent generic. One @browser beats three domain-specific browser agents.
 
 See `resources/agent-level.md` for detail.
