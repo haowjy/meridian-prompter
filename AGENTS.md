@@ -4,7 +4,7 @@ Agents and skills for writing LLM prompts.
 
 ## Releasing
 
-Use `mars version` (or `meridian mars version`) for releases:
+Use `mars version` (or `meridian -C "$PWD" mars version`) for releases:
 
 ```bash
 mars version patch --push       # 0.1.2 → 0.1.3, commit, tag, push
@@ -13,13 +13,19 @@ mars version minor --push       # 0.1.3 → 0.2.0
 
 This bumps `mars.toml`, promotes CHANGELOG.md `[Unreleased]` to the new version, commits, tags, and optionally pushes. Write changelog entries under `[Unreleased]` as you work — `mars version` handles the rest.
 
-**Meridian session root:** If you are inside a Meridian-spawned agent/session, `MERIDIAN_PROJECT_DIR` may point at the parent control repo even after `cd` into this package. For package releases, pass the package root explicitly:
+**Meridian session roots:** Meridian spawns resolve `MERIDIAN_TASK_DIR` for the
+checkout where source work happens, but `MERIDIAN_PROJECT_DIR` stays anchored to
+the session control root for state, profiles, and context. Nested
+`meridian ...` commands use project-root resolution, so CWD alone may not target
+this package. For package releases, pass the package root explicitly:
 
 ```bash
-meridian mars --root "$PWD" version patch --push
+meridian -C "$PWD" mars version patch --push
 ```
 
-Use explicit `--root` whenever releasing this package from an inherited Meridian environment; do not rely on CWD discovery there.
+Use explicit `-C <package-root>` whenever running Meridian commands for this
+package from an inherited Meridian environment. For task checkouts, prefer
+`meridian -C "$MERIDIAN_TASK_DIR" ...`.
 
 ## Agents
 

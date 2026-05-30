@@ -4,6 +4,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- Removed tracked `mars.lock`; lock is generated local state and ignored.
+
 ## [0.3.1] - 2026-05-30
 
 ## [0.3.0] - 2026-05-30
