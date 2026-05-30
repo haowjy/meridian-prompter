@@ -4,6 +4,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-05-30
+
 ### Changed
 - `skill-artifacts`: loading mechanics (load/available/model-invocable), skill types (principle/guardrail/mode-shift/checkpoint/reference), pollution/nudge guidance, scripts and split thresholds.
 - `prompt-principles` skill-level: loading mechanics, nudge problem, decompose-for-progressive-loading, skill types as cognitive lane shifts. Body threshold 500 → 100 lines.
