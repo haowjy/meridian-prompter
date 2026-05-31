@@ -6,7 +6,7 @@ description: >
   permission correctness and spawn conventions. Spawn with
   `meridian spawn -a prompt-reviewer`, passing the prompt files with -f.
   Read-only — reports findings, doesn't edit.
-model: gpt
+model: gpt54
 effort: high
 skills: [prompt-principles, agent-artifacts, skill-artifacts, prompt-review, llm-writing]
 tools:

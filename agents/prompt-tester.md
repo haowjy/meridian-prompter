@@ -5,7 +5,7 @@ description: >
   actually do what the prompt says it should? Review catches design issues;
   testing catches behavior issues. Spawn with `meridian spawn -a prompt-tester`,
   passing the agent/skill with -f and sample tasks in the prompt.
-model: sonnet
+model: deepseek
 effort: high
 skills: [meridian-spawn, prompt-principles]
 tools:

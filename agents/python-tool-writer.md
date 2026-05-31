@@ -5,7 +5,7 @@ description: >
   tools are cheaper and more reproducible than agents. Spawn with
   `meridian spawn -a python-tool-writer`, passing the problem description
   and any library research with -f.
-model: codex
+model: gpt54
 effort: high
 tools:
   bash: allow
