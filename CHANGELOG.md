@@ -4,6 +4,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+## [0.3.2] - 2026-05-31
+
 ### Changed
 - Agent model assignments tuned: `prompt-dev` pinned to `opus46` (intent inference for the interactive lead), `prompt-reviewer` `gpt` → `gpt54` (thorough adversarial review), `prompt-tester` `sonnet` → `deepseek` (cheaper behavioral testing), `python-tool-writer` `codex` → `gpt54` (stronger all-around tool authoring).
 - Removed tracked `mars.lock`; lock is generated local state and ignored.
