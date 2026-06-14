@@ -4,6 +4,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- `prompt-principles/resources/skill-level.md`: `kb-conventions` → `knowledge-layers` in examples.
+- `@prompt-dev`: default model `opus46` → `opus48`.
+
 ## [0.3.2] - 2026-05-31
 
 ### Changed

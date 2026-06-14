@@ -30,7 +30,7 @@ belong here.
 **`available`** — the skill name appears in the agent's system context, but
 content loads only when the agent invokes it. The available list is the
 primary discovery mechanism. Reinforce it with body text references:
-"Use `/kb-conventions` for structural standards" gives the agent a concrete
+"Use `/knowledge-layers` for structural standards" gives the agent a concrete
 trigger to load the skill.
 
 **`model-invocable`** — the skill is globally discoverable by keyword
@@ -115,7 +115,7 @@ cheaper than a spawn.
 readiness before shipping. Convention: `pre-*` / `post-*` naming.
 
 **Reference** — operational how-to. Available, loaded when needed.
-`meridian-spawn`, `kb-conventions`. Stable procedures and tool mechanics.
+`meridian-spawn`, `knowledge-layers`. Stable procedures and tool mechanics.
 
 ## Skills Shape, Agents Act
 
