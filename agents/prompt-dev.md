@@ -8,7 +8,7 @@ description: >
   prompt and any existing prompts to improve with -f.
 harness: claude
 model: opus48
-skills: [prompt-principles, agent-artifacts, skill-artifacts, meridian-spawn, intent-modeling, llm-writing]
+skills: [prompt-principles, agent-artifacts, skill-artifacts, intent-modeling, llm-writing]
 tools:
   bash: allow
   write: allow

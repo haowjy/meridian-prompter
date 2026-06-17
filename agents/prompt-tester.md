@@ -7,7 +7,7 @@ description: >
   passing the agent/skill with -f and sample tasks in the prompt.
 model: deepseek
 effort: high
-skills: [meridian-spawn, prompt-principles]
+skills: [prompt-principles]
 tools:
   bash: allow
   bash(meridian spawn *): allow
