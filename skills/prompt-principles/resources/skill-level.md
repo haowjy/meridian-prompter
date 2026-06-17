@@ -115,7 +115,7 @@ cheaper than a spawn.
 readiness before shipping. Convention: `pre-*` / `post-*` naming.
 
 **Reference** — operational how-to. Available, loaded when needed.
-`meridian-spawn`, `knowledge-layers`. Stable procedures and tool mechanics.
+`knowledge-layers`, `md-validation`. Stable procedures and tool mechanics.
 
 ## Skills Shape, Agents Act
 

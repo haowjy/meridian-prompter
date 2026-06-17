@@ -6,7 +6,6 @@ description = "Workflow for creating and improving LLM agents and skills from fi
 [dependencies.meridian-base]
 url = "https://github.com/haowjy/meridian-base"
 skills = [
-    "meridian-spawn",
     "intent-modeling",
     "llm-writing",
 ]
