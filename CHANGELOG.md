@@ -4,6 +4,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+## [0.3.6] - 2026-06-19
+
 ### Changed
 - All agent descriptions rewritten as natural sentences; removed spawn instructions (belongs in routing docs).
 - `prompt-dev` body: definition-list bullets → sentence bullets, agent-vs-skill section tightened, progressive-disclosure list simplified, em-dash cleanup.
