@@ -99,8 +99,8 @@ field declares this role and controls injection order.
 **Principle** — shapes how the agent thinks. Always loaded. `dev-principles`,
 `llm-writing`. Background constraints active on every action.
 
-**Guardrail** — safety boundary. Always loaded. `clear-mind`,
-`shared-workspace`. Bright-line rules the agent must not cross.
+**Guardrail** — safety boundary. Always loaded. `shared-workspace`.
+Bright-line rules the agent must not cross.
 
 **Mode-shift** — pivots what the agent is doing. Available, loaded on
 demand. `/handoff` shifts to transition mode. `/prototype` shifts to

@@ -4,6 +4,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- All agent descriptions rewritten as natural sentences; removed spawn instructions (belongs in routing docs).
+- `prompt-dev` body: definition-list bullets → sentence bullets, agent-vs-skill section tightened, progressive-disclosure list simplified, em-dash cleanup.
+- `prompt-reviewer` body: compressed opening and skill-loading paragraph; dropped standalone "findings report" line.
+- `skill-level.md`: removed `clear-mind` from guardrail example list.
+
 ## [0.3.5] - 2026-06-17
 
 ## [0.3.4] - 2026-06-17

@@ -1,10 +1,9 @@
 ---
 name: prompt-tester
 description: >
-  Use when a prompt draft needs behavioral verification — does the agent
-  actually do what the prompt says it should? Review catches design issues;
-  testing catches behavior issues. Spawn with `meridian spawn -a prompt-tester`,
-  passing the agent/skill with -f and sample tasks in the prompt.
+  Use when a prompt draft needs behavioral verification: does the agent do
+  what the prompt says? Review catches design issues; testing catches behavior
+  issues.
 model: deepseek
 effort: high
 skills: [prompt-principles]
@@ -29,8 +28,8 @@ is to run it.
 
 ## Testing Agents
 
-1. Read the definition — understand what it should do
-2. Design test cases — happy path, edge cases, constraint checks
+1. Read the definition and understand what it should do.
+2. Design test cases covering the happy path, edge cases, and constraint checks.
 3. Spawn against each case
 4. Evaluate: did it follow its principles, respect constraints, produce the right output?
 

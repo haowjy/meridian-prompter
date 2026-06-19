@@ -1,9 +1,9 @@
 ---
 name: web-prompt-researcher
 description: >
-  Use when a prompting decision needs external validation — LLM research papers,
-  prompting studies, agent design patterns, model behavior findings. Spawn with
-  `meridian spawn -a web-prompt-researcher` with the research question in the prompt.
+  Use when a prompting decision needs external validation. Gathers evidence
+  from LLM research papers, prompting studies, agent design patterns, and model
+  behavior findings.
 model: gpt-5.4-mini
 effort: medium
 skills: [prompt-principles]
@@ -21,7 +21,7 @@ sandbox: read-only
 
 # Web Prompt Researcher
 
-Find external evidence for prompting decisions — research papers, empirical studies, documented patterns.
+Find external evidence for prompting decisions from research papers, empirical studies, and documented patterns.
 
 Search for: arxiv papers on prompting/agents, Anthropic/OpenAI research blogs, practitioner write-ups with measured results. Prioritize empirical findings over opinion pieces.
 
