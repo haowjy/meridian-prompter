@@ -9,10 +9,15 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 - `prompt-review/resources/mechanics.md`: secondary mechanics sanity check for package wiring after the main prompt-quality review.
 
 ### Changed
+- `prompt-principles`: base skill rewritten around a smaller set of prompt heuristics; prompt-, skill-, agent-, and system-level resources tightened and reduced.
+- `skill-artifacts`: tightened around trigger/body/resource boundaries, clarified the `load`/`available`/`model-invocable` contract, and routed broader design guidance to `prompt-principles`.
+- `prompt-review`: narrowed to prompt-quality review first, with a lighter mechanics follow-up pass.
+- `prompt-review/resources/mechanics.md`: tightened the mechanics checklist around loadability, permissions, and model-policy brittleness.
 - `prompt-dev`: body cut down to prompt-specific judgment, now loads evidence-grounded grilling plus agent/skill artifact guidance, adds explicit subagent roster, and gains model fallbacks for non-Claude installs.
 - `prompt-reviewer`, `prompt-tester`, `python-tool-writer`, and `web-prompt-researcher`: descriptions and bodies tightened; model-policies added so the package degrades gracefully when preferred models are unavailable.
 - `AGENTS.md`: simplified to source-vs-generated editing guidance instead of listing generated structure details.
-- `agent-artifacts`: trimmed stale schema/tool wording and points to the new model-policies guidance.
+- `agent-artifacts`: narrowed to artifact shape and Meridian conventions, points to the new model-policies guidance, and reflects spawn restrictions enforced through config and hooks.
+- `agent-artifacts/resources/meridian.md`: updated Meridian-specific handoff, staffing, and package-target guidance, including target surfaces such as `.cursor` and `.pi`.
 
 ## [0.3.6] - 2026-06-19
 

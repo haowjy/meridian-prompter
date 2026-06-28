@@ -2,29 +2,21 @@
 name: agent-artifacts
 type: reference
 description: >
-  Load when writing or reviewing agent .md files. Design guidance for
-  agent definitions and meridian-specific conventions.
+  Load when writing or reviewing agent .md files. Covers agent artifact
+  shape, frontmatter, and Meridian-specific agent conventions.
 model-invocable: false
 ---
 
 # Agent Artifacts
 
-Agent definitions are markdown files with YAML frontmatter. For the full
-frontmatter schema, see the [mars agent profile reference](https://github.com/meridian-flow/mars-agents/blob/main/docs/config/agent-profiles.md).
+Use this skill for how agent artifacts are structured in Meridian. Use `/prompt-principles` for broader guidance on writing good prompts and shaping agent behavior.
 
-The body below frontmatter is the system prompt. Opening matters most — it
-survives compaction and gets strongest attention. Let skills carry
-methodology the agent shares with others; the body carries what's unique
-to this agent.
+Agent definitions are markdown files with YAML frontmatter. For the full frontmatter schema, see the [mars agent profile reference](https://github.com/meridian-flow/mars-agents/blob/main/docs/config/agent-profiles.md).
 
-Descriptions serve callers, not the agent. Lead with the problem it solves
-and when to reach for it, then teach how to use it effectively.
+The frontmatter defines configuration. The body below it is the system prompt. Keep artifact mechanics here and broader prompt design in `/prompt-principles`.
 
-Managers and leads coordinate — they don't implement. Deny direct agent-tool
-execution so `meridian spawn` stays the tracked execution path.
+Descriptions serve callers. They should help someone decide when to use the agent and what to expect. For broader description and body design, use `/prompt-principles` and its agent-level guidance.
 
-For meridian-specific conventions (subagent design, context handoffs, model
-staffing), see `resources/meridian.md`.
+Managers and leads coordinate through spawns. They should not implement directly. Some spawn restrictions are enforced outside the agent artifact itself, through Meridian config and hooks.
 
-For fallback patterns that keep agents usable on single-subscription setups,
-see `resources/model-policies.md`.
+Load `resources/meridian.md` for Meridian-specific subagent, handoff, staffing, and package-target conventions. Load `resources/model-policies.md` for fallback patterns that keep agents usable across different model availability constraints.
