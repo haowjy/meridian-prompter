@@ -4,6 +4,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+## [0.3.9] - 2026-06-28
+
 ## [0.3.8] - 2026-06-28
 
 ### Added
