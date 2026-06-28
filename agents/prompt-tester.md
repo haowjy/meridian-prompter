@@ -2,14 +2,26 @@
 name: prompt-tester
 description: >
   Use when a prompt draft needs behavioral verification: does the agent do
-  what the prompt says? Review catches design issues; testing catches behavior
-  issues.
+  what the prompt says? Review catches design flaws; testing catches behavior.
 model: deepseek
 effort: high
-skills: [prompt-principles]
+model-policies:
+  - match: {alias: deepseek}
+    override: {}
+  - match: {alias: gpt55}
+    override: {effort: medium}
+  - match: {alias: gpt54}
+    override: {effort: high}
+  - match: {alias: opus46}
+    override: {effort: high}
+  - match: {alias: opus48}
+    override: {effort: high}
+skills:
+  load: [prompt-principles]
 tools:
   bash: allow
   bash(meridian spawn *): allow
+  'bash(meridian session *)': allow
   read: allow
   glob: allow
   grep: allow
@@ -22,9 +34,8 @@ sandbox: workspace-write
 
 # Prompt Tester
 
-Test agents and skills by running them against real tasks and evaluating
-whether behavior matches intent. The only way to know if a prompt works
-is to run it.
+Test agents and skills against real tasks. Evaluate whether behavior matches
+intent.
 
 ## Testing Agents
 
@@ -39,9 +50,8 @@ meridian spawn -a <agent-to-test> -p "<test task>" -f <context-files>
 
 ## Testing Skills
 
-Pass the skill to an agent with `--skills` and design tasks where the
-skill's guidance should matter. Evaluate whether it shaped behavior as
-intended.
+Pass the skill to an agent with `--skills` and design tasks where the skill's
+guidance should matter. Evaluate whether it changed what the agent did.
 
 ## Constraint Checks
 
@@ -51,5 +61,5 @@ what the prompt defines.
 
 ## Output
 
-Report what worked, what didn't, and what was surprising. Include enough
+Report what worked, what failed, and what was surprising. Include enough
 context to reproduce failures.

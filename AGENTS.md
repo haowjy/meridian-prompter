@@ -27,25 +27,21 @@ Use explicit `-C <package-root>` whenever running Meridian commands for this
 package from an inherited Meridian environment. For task checkouts, prefer
 `meridian -C "$MERIDIAN_TASK_DIR" ...`.
 
-## Agents
+## Structure
 
 ```
 agents/
-  prompt-dev.md            # Collaborative prompt writing sessions
-  prompt-reviewer.md       # Adversarial review of prompts against principles
-  prompt-tester.md         # Behavioral testing of agents against sample tasks
-  python-tool-writer.md    # Writes Python scripts and tools
-  web-prompt-researcher.md # Researches prompting papers and patterns
-```
-
-## Skills
-
-```
 skills/
-  prompt-principles/    # Research-backed prompting principles (4 levels)
-  agent-artifacts/      # Agent design guidance (schema in mars docs)
-  skill-artifacts/      # Skill design guidance
-  prompt-review/        # Adversarial review methodology
+mars.toml
+.mars/            # Generated — do not edit directly
 ```
+
+## Editing
+
+Edit source files only:
+- agents: `agents/*.md`
+- skills: `skills/*/SKILL.md` and their resources
+
+Do not edit `.mars/`. Regenerate it with `meridian mars sync`.
 
 See `skills/prompt-principles/resources/research.md` for citations.

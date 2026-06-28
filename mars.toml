@@ -6,8 +6,11 @@ description = "Workflow for creating and improving LLM agents and skills from fi
 [dependencies.meridian-base]
 url = "https://github.com/haowjy/meridian-base"
 skills = [
+    "grill",
+    "grill-with-evidence",
     "intent-modeling",
     "llm-writing",
+    "session-mining",
 ]
 
 [settings]

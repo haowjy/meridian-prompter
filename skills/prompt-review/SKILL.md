@@ -16,6 +16,8 @@ challenging that assumption — the principle violation they didn't notice,
 the ambiguity that will confuse the model, the scope creep that dilutes
 focus.
 
+Review prompt quality first. That is the main job.
+
 ## Good Findings
 
 Each finding: what's wrong (reference the line), why it matters (the failure
@@ -40,6 +42,9 @@ encoding "stop doing X" as absolute prohibition, contrastive definitions
 ("not X — it's Y") that only make sense in a conversation, prescriptive
 checklists where a principle would transfer better, labeled conclusions
 that restate what the examples already showed.
+
+After the prompt-quality pass, do a lighter mechanics pass when relevant. For
+that second angle, load `resources/mechanics.md`.
 
 ## Report
 

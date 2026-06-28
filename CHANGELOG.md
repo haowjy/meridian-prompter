@@ -4,6 +4,16 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Added
+- `agent-artifacts/resources/model-policies.md`: guidance for using `model-policies` to keep agents usable on single-subscription installs with a small, intentional fallback set.
+- `prompt-review/resources/mechanics.md`: secondary mechanics sanity check for package wiring after the main prompt-quality review.
+
+### Changed
+- `prompt-dev`: body cut down to prompt-specific judgment, now loads evidence-grounded grilling plus agent/skill artifact guidance, adds explicit subagent roster, and gains model fallbacks for non-Claude installs.
+- `prompt-reviewer`, `prompt-tester`, `python-tool-writer`, and `web-prompt-researcher`: descriptions and bodies tightened; model-policies added so the package degrades gracefully when preferred models are unavailable.
+- `AGENTS.md`: simplified to source-vs-generated editing guidance instead of listing generated structure details.
+- `agent-artifacts`: trimmed stale schema/tool wording and points to the new model-policies guidance.
+
 ## [0.3.6] - 2026-06-19
 
 ### Changed

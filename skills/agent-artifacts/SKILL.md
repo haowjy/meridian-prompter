@@ -10,8 +10,7 @@ model-invocable: false
 # Agent Artifacts
 
 Agent definitions are markdown files with YAML frontmatter. For the full
-frontmatter schema (fields, values, harness overrides, model policies,
-fanout), see the [mars agent profile reference](https://github.com/meridian-flow/mars-agents/blob/main/docs/config/agent-profiles.md).
+frontmatter schema, see the [mars agent profile reference](https://github.com/meridian-flow/mars-agents/blob/main/docs/config/agent-profiles.md).
 
 The body below frontmatter is the system prompt. Opening matters most — it
 survives compaction and gets strongest attention. Let skills carry
@@ -21,9 +20,11 @@ to this agent.
 Descriptions serve callers, not the agent. Lead with the problem it solves
 and when to reach for it, then teach how to use it effectively.
 
-Managers and leads coordinate — they don't implement. Use
-`disallowed-tools: [Agent]` to force `meridian spawn` (which provides
-tracking and reports).
+Managers and leads coordinate — they don't implement. Deny direct agent-tool
+execution so `meridian spawn` stays the tracked execution path.
 
 For meridian-specific conventions (subagent design, context handoffs, model
 staffing), see `resources/meridian.md`.
+
+For fallback patterns that keep agents usable on single-subscription setups,
+see `resources/model-policies.md`.
