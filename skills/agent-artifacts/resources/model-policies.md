@@ -1,20 +1,10 @@
 # Model Policy Patterns
 
-Use `model-policies` to keep an agent usable when the preferred model is not
-available.
+Use `model-policies` to keep an agent usable when the preferred model is not available.
 
-Start with the model that best matches the agent's cognitive mode. Then add a
-small fallback set that can still do the job well enough on real installs,
-including users who only have one subscription.
+Start with the model that best matches the agent's cognitive mode. Then add a small fallback set that keeps the agent usable for real users, including users with only one subscription.
 
-Good `model-policies` do three things:
-
-- keep the preferred model explicit
-- name a small number of realistic fallbacks
-- adjust `effort` when a weaker or less naturally aligned model needs more help
-
-Do not add policies just for symmetry. Each fallback should earn its place by
-keeping the agent usable under a realistic availability constraint.
+Keep the preferred model explicit, keep the fallback set short, and raise `effort` when a weaker or less aligned model needs more help. Do not add policies for symmetry. Each fallback should earn its place.
 
 Typical pattern:
 
@@ -29,6 +19,4 @@ model-policies:
     override: {effort: high}
 ```
 
-Use pinned aliases when the cognitive differences between model variants
-matter. Keep the list short. The goal is graceful degradation, not a giant
-catalog.
+For broader model-to-cognitive-mode guidance, use `/prompt-principles` and `resources/agent-level.md`.

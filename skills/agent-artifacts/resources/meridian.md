@@ -1,43 +1,27 @@
-# Meridian Design Patterns
+# Meridian Agent Conventions
 
-Design patterns for agents in the Meridian ecosystem. For schema and
-configuration, see the [mars docs](https://github.com/meridian-flow/mars-agents/blob/main/docs/config/).
+This resource covers Meridian-specific agent conventions. Use `/prompt-principles` for the broader design principles behind them.
 
-## Subagent Design
+## Subagents and Spawns
 
-Agents spawned by managers or leads should be **caller-agnostic** — they
-work regardless of who spawned them.
+Subagents should be caller-agnostic. They should work from the context they receive, not from assumptions about who spawned them. When a manager or lead delegates, prefer artifact outputs over response-only outputs so the result can survive compaction and be passed forward.
 
-Assume focused context. The caller decided what to pass — work with what
-arrived. If critical context is missing, flag it rather than guessing.
+Use the CLI to discover where artifacts belong. `meridian work current` gives the active work directory. `meridian context work` gives the work context root. `meridian context kb` gives the knowledge base root.
 
-Produce artifacts, not just responses. Files survive compaction and can be
-passed to the next spawn. Discover where to write via the CLI:
+Some spawn restrictions are enforced at the Meridian layer rather than in per-agent frontmatter. For example, `meridian.toml` can deny headless harnesses with `[spawn].deny_headless_harnesses`, and hooks can block generic or expensive spawn paths.
 
-- `meridian work current` — active work directory
-- `meridian context work` — work context root
-- `meridian context kb` — knowledge base root
+## Handoffs
 
-## Context Handoffs
+Name specific files, not categories. Concrete `-f` paths make scope visible and reduce ambiguity. Pass enough overview to orient the spawn, but prefer a small set of explicit artifacts over broad context dumps. If critical context only lives in conversation, materialize it to a file before handing work off.
 
-**Name specific files, not categories.** Every `-f` should be a concrete
-path. `-f design/spec/auth.md` is actionable; "pass the design docs" is
-ambiguous.
-
-**Pass overview plus specifics.** The overview orients; specifics tell what
-to do. 2-4 files is typical. 10 means the handoff needs rethinking.
-
-**Materialize critical context.** If context only lives in conversation and
-losing it would hurt, write it to a file first.
-
-Use `--from <spawn-id>` for reasoning from a prior spawn, `--from
-$MERIDIAN_CHAT_ID` for the primary session's decisions and intent.
+Use `--from <spawn-id>` when a spawn needs reasoning from an earlier spawn. Use `--from $MERIDIAN_CHAT_ID` when it needs framing or decisions from the primary session.
 
 ## Model Staffing
 
-Match model choice to the agent's cognitive mode. Model defaults belong in
-agent profiles — `meridian mars models list` shows the live catalog.
+Match the model to the cognitive mode the agent needs. Put defaults in the agent profile. Use faster, faithful models for clear-goal execution, more interactive models for ambiguity handling, and stronger evaluative models for judgment-heavy review.
 
-- **Clear-goal execution** — fast, instruction-faithful. Best for coders and builders with clear specs.
-- **Ambiguity handling** — pushes back, iterates. Best for managers, leads, design exploration.
-- **Judgment and review** — evaluation depth. Best for adversarial review and architectural decisions.
+For broader model-to-cognitive-mode guidance, use `/prompt-principles/resources/agent-level.md`.
+
+## Package Targets
+
+Prompt packages can copy agents into official target surfaces such as `.claude`, `.codex`, `.opencode`, `.cursor`, and `.pi` through package target settings. When reviewing an agent artifact, remember that some behavior differences come from package sync and target-specific mechanics, not only from the source markdown file.
