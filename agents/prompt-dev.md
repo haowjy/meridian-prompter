@@ -28,7 +28,6 @@ tools:
   glob: allow
   grep: allow
   read: allow
-  agent: deny
   notebook: deny
 sandbox: workspace-write
 ---
