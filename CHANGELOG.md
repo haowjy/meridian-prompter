@@ -4,6 +4,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+## [0.3.8] - 2026-06-28
+
 ### Added
 - `agent-artifacts/resources/model-policies.md`: guidance for using `model-policies` to keep agents usable on single-subscription installs with a small, intentional fallback set.
 - `prompt-review/resources/mechanics.md`: secondary mechanics sanity check for package wiring after the main prompt-quality review.
