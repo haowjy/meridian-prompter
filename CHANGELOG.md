@@ -4,6 +4,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+## [0.4.2] - 2026-09-16
+
 ### Changed
 - Clarify target-constrained model fallback, whole-profile candidate ordering and per-entry `no-fallback`; preserve candidate-only rules.
 - Require Mars >= 0.14.0 for that fallback contract.
