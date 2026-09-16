@@ -4,6 +4,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- Clarify target-constrained model fallback, whole-profile candidate ordering and per-entry `no-fallback`; preserve candidate-only rules.
+
 ## [0.4.1] - 2026-07-09
 
 ### Changed
