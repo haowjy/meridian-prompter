@@ -4,6 +4,14 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- Removed Composer from python-tool-writer's fallback policy; the base alias remains available during retirement.
+- Prompt tester defaults to Luna; fallback order is DeepSeek, Sonnet, Sol, Opus 4.6.
+- Web prompt researcher: Luna, DeepSeek, Sonnet. Python tool writer: Luna, DeepSeek, Sonnet, Sol, with explicit input/output and verification briefing guidance.
+- Prompt Dev keeps Opus46, then Astra, Fable, Sol, Sonnet for judgment and writing. Removed its fixed harness so model aliases select their routes.
+- Prompt Reviewer: Astra, Sol, Grok, Opus. DeepSeek/Luna remain explicit quick-review options, excluded from automatic fallback.
+- Requires meridian-base >=0.10.11 for refreshed base staffing.
+
 ## [0.4.2] - 2026-09-16
 
 ### Changed

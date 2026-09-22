@@ -3,14 +3,17 @@ name: prompt-dev
 description: >
   Use when an agent or skill needs collaborative drafting and iteration.
   Clarifies purpose, boundaries, and structure before writing.
-harness: claude
 model: opus46
 model-policies:
   - match: {alias: opus46}
     override: {}
+  - match: {alias: astra}
+    override: {effort: high}
+  - match: {alias: fable}
+    override: {effort: high}
   - match: {alias: sol}
     override: {effort: xhigh}
-  - match: {alias: deepseek}
+  - match: {alias: sonnet}
     override: {effort: high}
 subagents: [prompt-reviewer, prompt-tester, python-tool-writer, web-prompt-researcher, explorer, session-miner]
 skills:

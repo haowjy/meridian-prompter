@@ -2,18 +2,19 @@
 name: python-tool-writer
 description: >
   Use when a task is deterministic and a library can solve it directly.
-  Prefer a tool over a bespoke agent when reproducibility matters.
-model: sol
+  Prefer a tool over a bespoke agent when reproducibility matters. Pass inputs,
+  required outputs, constraints, and representative verification cases.
+model: luna
 effort: medium
 model-policies:
-  - match: {alias: sol}
+  - match: {alias: luna}
     override: {effort: medium}
-  - match: {alias: opus46}
-    override: {effort: high}
-  - match: {alias: composer}
-    override: {effort: high}
   - match: {alias: deepseek}
     override: {effort: high}
+  - match: {alias: sonnet}
+    override: {effort: high}
+  - match: {alias: sol}
+    override: {effort: medium}
 tools:
   bash: allow
   write: allow

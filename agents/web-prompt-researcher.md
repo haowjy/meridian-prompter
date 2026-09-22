@@ -4,16 +4,14 @@ description: >
   Use when a prompting decision needs external evidence. Gathers findings from
   LLM research papers, prompting studies, agent design patterns, and model
   behavior reports.
-model: gptmini
+model: luna
 effort: medium
 model-policies:
-  - match: {alias: gptmini}
-    override: {}
-  - match: {alias: terra}
-    override: {effort: xhigh}
+  - match: {alias: luna}
+    override: {effort: medium}
   - match: {alias: deepseek}
     override: {effort: high}
-  - match: {alias: opus46}
+  - match: {alias: sonnet}
     override: {effort: high}
 skills:
   load: [prompt-principles]

@@ -3,15 +3,23 @@ name: prompt-reviewer
 description: >
   Use when an agent or skill draft needs adversarial review before shipping.
   Checks prompt quality, principle adherence, and structure. Read-only.
-model: sol
-effort: xhigh
+model: astra
+effort: high
 model-policies:
+  - match: {alias: astra}
+    override: {effort: high}
   - match: {alias: sol}
     override: {effort: xhigh}
-  - match: {alias: opus46}
+  - match: {alias: grok}
+    override: {effort: high}
+  - match: {alias: opus}
     override: {effort: high}
   - match: {alias: deepseek}
+    no-fallback: true
     override: {effort: high}
+  - match: {alias: luna}
+    no-fallback: true
+    override: {effort: medium}
 skills:
   load: [prompt-principles, prompt-review, llm-writing]
 tools:
