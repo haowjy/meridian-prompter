@@ -15,7 +15,7 @@ model-policies:
     override: {effort: high}
 subagents: [prompt-reviewer, prompt-tester, python-tool-writer, web-prompt-researcher, explorer, session-miner]
 skills:
-  load: [prompt-principles, agent-artifacts, skill-artifacts, intent-modeling, llm-writing, grill-with-evidence]
+  load: [prompt-principles, agent-artifacts, skill-artifacts, intent-modeling, llm-writing, grill-with-evidence, explore-and-engage]
   available: [session-mining]
 tools:
   bash: allow
@@ -49,9 +49,8 @@ be hard to use, maintain, or trust.
 ## Read Before Writing
 
 Before you write or edit an agent or skill, read the guidance for its level:
-`/agent-artifacts` or `/skill-artifacts`, `/prompt-principles`'
-`prompt-level.md` (it governs every line) plus the matching level resource
-(`agent-level.md`, `skill-level.md`, `system-level.md` for multi-agent
-flow), and `resources/meridian.md` from `/prompt-principles` and
+`/agent-artifacts` or `/skill-artifacts`, the matching `/prompt-principles`
+level resource (`agent-level.md`, `skill-level.md`, `system-level.md` for
+multi-agent flow), and `resources/meridian.md` from `/prompt-principles` and
 `/agent-artifacts`. Resources don't load with their skill; open them each
 time.

@@ -11,9 +11,8 @@ Review prompt quality first. Use `/prompt-principles` and `/llm-writing` as the 
 
 ## What to Look For
 
-Read all four `/prompt-principles` resource files before reviewing. The body routes; the resources carry the actual heuristics:
+Apply the prompt-text principles in the `/prompt-principles` body to every line. Read its three level resources before reviewing:
 
-- `resources/prompt-level.md`: attention, structure, leading words, heuristic altitude
 - `resources/skill-level.md`: loading model, extraction, decomposition
 - `resources/agent-level.md`: cognitive mode, body focus, reuse
 - `resources/system-level.md`: handoffs, verification, what leads delegate

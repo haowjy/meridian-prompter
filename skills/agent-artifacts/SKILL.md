@@ -15,4 +15,8 @@ Descriptions serve callers: they should help someone decide when to use the agen
 
 A lead's body says which work it does itself and which it delegates; leads that implement are as valid as leads that only coordinate.
 
+Before merging, deleting, or narrowing an agent, read its history (`git log -p` on its file). A different default model, a role the human asked for, or a job beyond what its body now says is a reason it exists; name each one in your proposal.
+
+A model the human made an explicit option carries `no-fallback: true` in every agent that lists it. When you add a model to an agent's policies, check whether it is one of those.
+
 Load `resources/meridian.md` for Meridian-specific subagent, handoff, staffing, and package-target conventions. Load `resources/model-policies.md` for fallback patterns that keep agents usable across different model availability.
