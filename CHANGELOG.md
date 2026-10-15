@@ -4,6 +4,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+## [0.4.4] - 2026-10-15
+
 ### Changed
 - `@prompt-dev`: default model `opus46` → `opus` (Opus 5.5). `@prompt-tester`: `opus46` fallback → `opus`. Model-policy example uses `opus`.
 
