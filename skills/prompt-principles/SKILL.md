@@ -11,13 +11,13 @@ Use `/llm-writing` alongside this skill.
 
 ## Write for an Agent
 
-An agent sees a frozen prompt and a bounded context window. It will not reliably infer which parts are foundational, optional, or incidental unless the prompt makes that hierarchy clear. Make the task, boundaries, and success criteria explicit: name the artifacts it produces and what success looks like.
+An agent sees a frozen prompt and a bounded context window. It will not reliably infer which parts are foundational, optional, or incidental unless the prompt makes that hierarchy clear. Make the task, boundaries, and success criteria explicit: name the artifacts it produces and what success looks like. When independence matters, verify in a separate spawn.
 
 Placement and structure carry the hierarchy. The opening gets the strongest attention and the close the second-strongest, so put purpose and the main constraint first and the reminder that matters most last; an instruction buried in the middle loses to local wording. Separate kinds of information with headers, XML tags, and short sections. Structure works where ALL CAPS, repeated "must," and emotional emphasis only add force.
 
 ## Every Line Must Change Behavior
 
-Test each line: does removing it change how the model behaves? If not, delete it. Models already know how to code, review, write tests, and follow instructions. Write only what steers the model away from its default or toward something non-obvious. Words that change nothing dilute the words that do.
+Test each line: does removing it change how the model behaves? If not, delete it. Models already know how to code, review, write tests, and follow instructions. Write only what steers the model away from its default or toward something non-obvious: prompt text steers behavior rather than narrating process. Words that change nothing dilute the words that do.
 
 ## Say What to Do
 
@@ -33,9 +33,9 @@ Detailed steps produce consistent behavior; use them where predictability matter
 
 ## State Instructions Flat
 
-Every condition costs reliability: the model must first decide whether it fired, and it misses conditional constraints far more often than plain ones. A fallback plants its case ("if in doubt, use X" overtriggers X). LLM drafts add conditions by reflex ("re-review only if the fix touched the blocked path," "if the user declines, keep going"), and each one turns a rule into a judgment call.
+Every condition costs reliability: the model must first decide whether it fired, and it misses conditional constraints far more often than plain ones. A fallback plants its case ("if in doubt, use X" overtriggers X), and LLM drafts add conditions by reflex.
 
-State the default as a directive. Keep a condition only when the instruction is wrong on the other side and both sides occur, and make its trigger checkable; a condition the agent can't check ("when you think it's done," "as needed") gets guessed, usually conveniently. If the thorough path is right, make it the only path: a weaker option offered beside it becomes the default. Before cutting a condition, read the flat version as an instruction that always fires: "probe to settle findings" makes a reviewer probe a finding about file size.
+State the default as a directive. Keep a condition only when the instruction is wrong on the other side and both sides occur, and make its trigger checkable; a condition the agent can't check ("when you think it's done," "as needed") gets guessed, usually conveniently. Delete fallbacks for cases the agent's role rules out. If the thorough path is right, make it the only path: a weaker option offered beside it becomes the default. Before cutting a condition, read the flat version as an instruction that always fires: "probe to settle findings" makes a reviewer probe a finding about file size.
 
 ## Use Leading Words
 
@@ -43,9 +43,7 @@ A leading word recruits a concept the model already holds, in fewer tokens than 
 
 ## Progressive Disclosure
 
-The body carries what the agent needs every run. Resources carry depth it reaches when the task demands it. If something is situational, it belongs in a resource, not the always-loaded layer.
-
-Each layer has one job. The description helps a caller decide whether to use the artifact. The body defines the behavior active every run. Skills and resources carry shared depth. The same explanation at every layer makes the artifact longer without making it clearer. When independence matters, verify in a separate spawn.
+Each layer has one job. The description helps a caller decide whether to use the artifact. The body carries what the agent needs every run. Skills and resources carry shared and situational depth it reaches when the task demands it. The same explanation at every layer makes the artifact longer without making it clearer.
 
 ## Keep the Core Harness-Agnostic
 
