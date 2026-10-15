@@ -19,7 +19,7 @@ Skills reach agents through four paths (see `/prompt-principles/resources/skill-
 
 - **`load`**: always in the system prompt. Use for skills the agent needs every run.
 - **`available`**: agent can self-load when `model-invocable: true`. Use for skills it may reach for on demand.
-- **`description`**: caller discovery surface. List attachable skill names so parent agents know what to compose via `--skills`.
+- **an agent's `description`**: besides when and why to spawn the agent, list attachable skill names so parent agents know what to compose via `--skills`.
 - **`--skills`**: caller injection at spawn time. Bypasses `available`; any bundled skill can be injected.
 
 `model-invocable` defaults to true; an explicit `model-invocable: false` makes an `available` skill visible but not self-loadable (caller injection via `--skills` still works). Keep the global `model-invocable` pool small; each entry costs description tokens on every turn.
@@ -30,4 +30,4 @@ Set `type:` to declare the skill's role: `principle` for always-loaded thinking 
 
 ## Descriptions
 
-Descriptions should lead with *when to load* the skill, not just what it contains. The description is what an agent or orchestrator reads to decide whether to load. "Load when reviewing test architecture" beats "Covers test structure patterns."
+A skill's description is its trigger: say when and why to load it, not what it contains. The agent reads it to decide whether to load, and a list of contents buries the trigger. "Load when tests are making the codebase harder to change: audits test structure against what it protects" beats "Covers test structure patterns." Leave the contents to the body.

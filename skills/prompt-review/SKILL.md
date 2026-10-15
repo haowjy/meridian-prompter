@@ -18,7 +18,7 @@ Read all four `/prompt-principles` resource files before reviewing. The body rou
 - `resources/prompt-level.md`: attention, structure, leading words, heuristic altitude
 - `resources/skill-level.md`: loading model, extraction, decomposition
 - `resources/agent-level.md`: cognitive mode, body focus, reuse
-- `resources/system-level.md`: handoffs, verification, coordination altitude
+- `resources/system-level.md`: handoffs, verification, what leads delegate
 
 Review against each layer that applies. Focus on high-leverage issues: no-op lines, misplaced knowledge, overloaded bodies, weak routing, brittle prescription, and missing reasons. A good finding points to the exact text, explains the failure mode, and suggests a better direction.
 

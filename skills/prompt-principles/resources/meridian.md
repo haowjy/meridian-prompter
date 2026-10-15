@@ -73,45 +73,22 @@ At each pipeline transition, handoff quality determines whether scope survives. 
 
 The principle: each spawn command should make it obvious what the agent reads and what it's responsible for. If you can't name the `-f` files, the handoff context doesn't exist as artifacts yet: materialize it first.
 
-## Manager/Lead Principles
+## Lead Principles
 
-Managers and leads coordinate: they don't implement.
+A lead decides, routes, and integrates; workers execute bounded work. A lead's body says which work it does itself.
 
-### The Core Pattern
+### What to Delegate
 
-```
-Manager/Lead (routes, evaluates) → Workers (execute)
-```
+Delegate what would spend the context the lead needs for decisions, or what needs an independent check: multi-file exploration, large implementation, review, probing. Do small fixes and glue directly when briefing a worker costs more than the change. Never review your own implementation; spawn the reviewer.
 
-The manager/lead:
-- Captures requirements, confirms direction
-- Spawns workers with focused context
-- Evaluates results, routes next steps
-- Handles convergence and escalation
+### Convergence
 
-The manager/lead does NOT:
-- Write code or edit files
-- Do work it should delegate
-- Mix implementation with coordination
+The lead decides when a loop stops; workers don't self-terminate loops.
 
-### Why This Separation Matters
-
-If the manager/lead implements:
-- It loses the vantage point to notice drift
-- It can't objectively review its own work
-- Spawns don't produce traceable reports
-- Review/implementation separation breaks
-
-Even for "trivial" tasks, spawn a worker. The manager/lead's value is coordination altitude.
-
-### Convergence and Loop Guards
-
-Managers and leads control when to stop: workers don't self-terminate loops.
-
-- Define convergence criteria (e.g., "no blocking findings")
-- Set max iterations externally (15-25 typical)
-- Allow explicit deferral as valid exit
-- Escalate to user when loops don't converge
+- Define convergence (e.g., no blocking findings).
+- A second finding of the same failure class on the same seam ends patching: find the shared cause or redesign.
+- Explicit deferral is a valid exit.
+- Bring a loop that won't converge to the user.
 
 ### Handoff Discipline
 

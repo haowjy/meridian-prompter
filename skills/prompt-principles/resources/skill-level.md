@@ -12,7 +12,7 @@ Skills reach agents through four independent paths, each serving a different aud
 
 - **`load`**: always in the system prompt. Reserved for knowledge the agent genuinely needs every run. Every loaded skill costs context on every turn.
 - **`available`**: the agent can self-load mid-session when `model-invocable` is true. This is for the agent's own discovery: skills it might need but shouldn't pay for until it does.
-- **`description`**: the caller's discovery surface. A parent agent reads child descriptions to learn what skills can be attached. List attachable skill names here so orchestrators know what to compose.
+- **an agent's `description`**: the caller's discovery surface for that agent. Besides when and why to spawn it, list the skills a caller can attach so orchestrators know what to compose.
 - **`--skills` (caller injection)**: a parent passes skills onto a subagent at spawn time. This bypasses `available` entirely; any bundled skill can be injected regardless of the agent's own configuration.
 
 `available` and `--skills` serve different audiences. `available` is the agent looking inward ("what can I load myself?"). `--skills` is the caller reaching in from outside ("take this too"). They do not need to match.

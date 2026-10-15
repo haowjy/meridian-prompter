@@ -6,9 +6,9 @@ Multi-agent systems are useful when they create better focus, better verificatio
 
 Default to one agent, then add more only when the split earns its overhead. Every extra agent adds handoff cost, debugging cost, coordination risk, and opportunities for silent scope loss. Multi-agent structure is worthwhile when one context window is not enough, when different kinds of thinking need different workers, or when independent work can proceed in parallel.
 
-## Managers Need Altitude
+## Leads Spend Context on Decisions
 
-A manager or lead should gather context, route focused workers, evaluate their outputs, and drive convergence. It should not also do the worker's job. Once the coordinating agent drops into implementation, it loses the vantage point needed to notice drift, compare alternatives, and steer the overall workflow.
+A lead's scarce resource is the context it uses for decisions across a long task. Delegate work that would spend that context or that needs an independent check: broad exploration, large implementation, review. Do small fixes and glue directly when briefing a worker costs more than the change. A lead that implements large pieces loses the vantage point to notice drift; one that delegates a two-line fix pays for a briefing and a cold worker to save nothing.
 
 ## Handoffs Are a First-Class Design Problem
 

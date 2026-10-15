@@ -24,7 +24,7 @@ Tell the model what to optimize for, when that guidance applies, and what failur
 
 ## Layer Information On Purpose
 
-Descriptions, bodies, skills, and resources each have a different job. The description helps a caller decide whether to use the artifact. The body defines the behavior that should stay active every run. Skills and resources carry shared depth. When the same explanation appears at every layer, the artifact gets longer without becoming clearer.
+Descriptions, bodies, skills, and resources each have a different job. A description tells a caller when and why to load or spawn the artifact: the situation that calls for it and what it buys. "Run before implementation starts: the only point where before-state evidence still exists" gives both. A description is not a summary of the body; the caller needs a trigger, and a list of contents buries it. The body defines the behavior that should stay active every run. Skills and resources carry shared depth. When the same explanation appears at every layer, the artifact gets longer without becoming clearer.
 
 ## Use Leading Words
 
