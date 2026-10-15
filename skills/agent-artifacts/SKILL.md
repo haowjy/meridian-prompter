@@ -1,9 +1,7 @@
 ---
 name: agent-artifacts
 type: reference
-description: >
-  Load when writing or reviewing agent .md files. Covers agent artifact
-  shape, frontmatter, and Meridian-specific agent conventions.
+description: "Load when writing or reviewing agent .md files, so frontmatter, descriptions, and what a lead does itself versus delegates follow Meridian's conventions."
 model-invocable: false
 ---
 

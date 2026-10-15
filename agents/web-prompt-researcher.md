@@ -1,9 +1,6 @@
 ---
 name: web-prompt-researcher
-description: >
-  Use when a prompting decision needs external evidence. Gathers findings from
-  LLM research papers, prompting studies, agent design patterns, and model
-  behavior reports.
+description: "Use when a prompting decision needs external evidence. Pass the decision; returns findings from LLM research papers, prompting studies, agent design patterns, and model behavior reports."
 model: luna
 effort: medium
 model-policies:

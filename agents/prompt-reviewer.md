@@ -1,8 +1,6 @@
 ---
 name: prompt-reviewer
-description: >
-  Use when an agent or skill draft needs adversarial review before shipping.
-  Checks prompt quality, principle adherence, and structure. Read-only.
+description: "Use when an agent or skill draft needs adversarial review before shipping. Pass the draft paths and what it is meant to do; returns ranked findings. Read-only."
 model: astra
 effort: high
 model-policies:

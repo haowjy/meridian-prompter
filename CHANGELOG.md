@@ -5,6 +5,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 ## [Unreleased]
 
 ### Changed
+- Skill and agent descriptions in this package follow the when-and-why rule.
 - Descriptions are defined consistently as when and why to load or spawn, not a summary (`prompt-principles` prompt/agent/skill levels, `skill-artifacts`, `agent-artifacts`).
 - Lead guidance (`system-level.md`, `meridian.md`) no longer says leads never implement: delegate what spends decision context or needs an independent check; do small fixes and glue directly. Stale 15-25 iteration cap replaced by stop-on-second-same-class-finding.
 - `agent-artifacts`: descriptions say when to launch or spawn, what to pass, what comes back; summaries go in the body and README. Leads may implement; the body says what they do themselves.

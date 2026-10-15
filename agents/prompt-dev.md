@@ -1,8 +1,6 @@
 ---
 name: prompt-dev
-description: >
-  Use when an agent or skill needs collaborative drafting and iteration.
-  Clarifies purpose, boundaries, and structure before writing.
+description: "Use when an agent or skill needs collaborative drafting and iteration. Pass the job the prompt should do and any existing draft; settles purpose, boundaries, and structure with you before writing."
 model: opus
 model-policies:
   - match: {alias: opus}

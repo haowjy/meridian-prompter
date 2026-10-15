@@ -1,9 +1,7 @@
 ---
 name: prompt-principles
 type: principle
-description: >
-  Load when writing or reviewing prompts, skills, or agents. Gives the
-  core heuristics for writing prompts that steer LLM behavior reliably.
+description: "Load when writing or reviewing prompts, skills, or agents: the heuristics that make a prompt steer LLM behavior reliably."
 model-invocable: true
 ---
 

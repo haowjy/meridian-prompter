@@ -1,9 +1,7 @@
 ---
 name: skill-artifacts
 type: reference
-description: >
-  Load when writing or reviewing skills. Covers SKILL.md shape, loading
-  mechanics, and how to structure bundled resources.
+description: "Load when writing or reviewing skills, so the description triggers loading and the body, resources, and loading paths split the way agents consume them."
 model-invocable: false
 ---
 
