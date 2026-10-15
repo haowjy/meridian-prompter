@@ -5,6 +5,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 ## [Unreleased]
 
 ### Changed
+- Requires meridian-base 0.11 (`/correct`, the corrections register, generic base wording).
 - Review fixes: reviews run on a model family other than the author's (`system-level.md`, `meridian.md`); `skill-level.md` sets `model-invocable: false` for caller-injected skills; `@prompt-tester` checks read-only agents never write.
 - `prompt-principles` folds `resources/prompt-level.md` into its body as one sequence (placement and structure, every line, say what to do, reasons, altitude, flat instructions, leading words): it governs every line, so it loads instead of waiting to be opened. Benchmark citations moved to `resources/research.md`. `agent-artifacts`: read an agent's history before merging, deleting, or narrowing it; keep explicit-only models `no-fallback` everywhere. `@prompt-dev` loads `explore-and-engage`.
 - `prompt-principles` resources state the behavior positively: write caller-agnostic, brief spawns as if they have no history, verify with external checks.
