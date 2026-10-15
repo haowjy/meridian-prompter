@@ -20,4 +20,4 @@ Spawn a new agent when the work needs a different model or a clean context windo
 
 ## Write for Reuse Upstream and Downstream
 
-Bodies should stay caller-agnostic so the agent can work from whatever context it receives. Descriptions should tell callers when and why to use the agent, what to pass, and what to expect back; what the agent does belongs in its body and the package README. If the specialization lives entirely in the caller's framing, keep one generic agent rather than creating many narrow variants. New agents earn their existence when they carry a distinct mode of thought, toolset, or durable operating method.
+Bodies should stay caller-agnostic so the agent can work from whatever context it receives. Descriptions should teach callers when to use the agent, what to pass, and what to expect back. If the specialization lives entirely in the caller's framing, keep one generic agent rather than creating many narrow variants. New agents earn their existence when they carry a distinct mode of thought, toolset, or durable operating method.
