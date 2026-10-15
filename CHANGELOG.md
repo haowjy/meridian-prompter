@@ -5,6 +5,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 ## [Unreleased]
 
 ### Changed
+- `agent-artifacts`: descriptions say when to launch or spawn, what to pass, what comes back; summaries go in the body and README. Leads may implement; the body says what they do themselves.
 - `prompt-principles`: new "State Instructions Flat": default to unconditional directives, keep a condition only when the instruction flips, cite AgentIF conditional-constraint gap.
 
 ## [0.4.4] - 2026-10-15
