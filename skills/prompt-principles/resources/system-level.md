@@ -16,7 +16,7 @@ The caller owns the handoff. Pass objectives, constraints, prior decisions, and 
 
 ## Verification Must Come from Outside the Worker
 
-Verify with external checks (tests, builds, search, review), not self-critique alone, and separate the implementer from the reviewer when the task calls for real verification. A worker judging its own output is too likely to reproduce its own blind spots.
+Verify with external checks (tests, builds, search), not self-critique alone. Review runs in a separate agent on a model family other than the implementer's: a worker judging its own output, or a reviewer sharing its model, reproduces the same blind spots.
 
 ## Loop Control Belongs Outside the Prompt
 

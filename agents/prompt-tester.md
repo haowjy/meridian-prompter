@@ -55,7 +55,7 @@ guidance should matter. Evaluate whether it changed what the agent did.
 
 ## Constraint Checks
 
-Verify the agent respects its boundaries: read-only agents avoid writing,
+Verify the agent respects its boundaries: read-only agents never write,
 managers use `meridian spawn` instead of the Agent tool, scope stays within
 what the prompt defines.
 

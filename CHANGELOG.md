@@ -5,6 +5,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 ## [Unreleased]
 
 ### Changed
+- Review fixes: reviews run on a model family other than the author's (`system-level.md`, `meridian.md`); `skill-level.md` sets `model-invocable: false` for caller-injected skills; `@prompt-tester` checks read-only agents never write.
 - `prompt-principles` carries the prompt-text principles in its body (attention, structure, positive framing, reasons, altitude, leading words, weak options, flat instructions); `resources/prompt-level.md` is gone. They govern every line, so they load instead of waiting to be opened. `agent-artifacts`: read an agent's history before merging, deleting, or narrowing it; keep explicit-only models `no-fallback` everywhere. `@prompt-dev` loads `explore-and-engage`.
 - `prompt-principles` resources state the behavior positively: write caller-agnostic, brief spawns as if they have no history, verify with external checks.
 - `prompt-reviewer` keeps Grok as an explicit option but never falls back to it.

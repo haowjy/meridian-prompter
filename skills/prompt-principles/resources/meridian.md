@@ -79,7 +79,7 @@ A lead decides, routes, and integrates; workers execute bounded work. A lead's b
 
 ### What to Delegate
 
-Delegate what would spend the context the lead needs for decisions, or what needs an independent check: multi-file exploration, large implementation, review, probing. Do small fixes and glue directly when briefing a worker costs more than the change. Never review your own implementation; spawn the reviewer.
+Delegate what would spend the context the lead needs for decisions, or what needs an independent check: multi-file exploration, large implementation, review, probing. Do small fixes and glue directly when briefing a worker costs more than the change. Never review your own implementation; spawn the reviewer on a model family other than the author's.
 
 ### Convergence
 

@@ -17,7 +17,7 @@ Skills reach agents through four independent paths, each serving a different aud
 
 `available` and `--skills` serve different audiences. `available` is the agent looking inward ("what can I load myself?"). `--skills` is the caller reaching in from outside ("take this too"). They do not need to match.
 
-When you know at agent definition time exactly which skills an agent needs, use `load`. When the skill is sometimes needed and the caller knows when, skip `model-invocable` and let the caller inject it with `--skills`.
+When you know at agent definition time exactly which skills an agent needs, use `load`. When the skill is sometimes needed and the caller knows when, set `model-invocable: false` and let the caller inject it with `--skills`.
 
 ## The Top Layer Should Route, Not Teach
 
