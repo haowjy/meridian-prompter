@@ -4,6 +4,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- `prompt-principles`: new "State Instructions Flat": default to unconditional directives, keep a condition only when the instruction flips, cite AgentIF conditional-constraint gap.
+
 ## [0.4.4] - 2026-10-15
 
 ### Changed

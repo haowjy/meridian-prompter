@@ -33,3 +33,9 @@ A leading word is a compact concept from the model's pretraining that anchors be
 ## Weak Options Become Default Options
 
 Treat escape hatches carefully. If the thorough path is the right path, make it the only path instead of offering an easier fallback that the model will prefer. Words that do not change behavior dilute the words that do. Tight prompts are not just shorter; they are harder to misread.
+
+## State Instructions Flat
+
+Every condition costs reliability. On AgentIF (NeurIPS 2025), frontier models met conditional constraints 15 to 21 points less often than plain ones (Claude 4 Sonnet: 83.6% vs 62.2%), because the model must first decide whether the condition fired. Anthropic's Claude guidance reports that "If in doubt, use [tool]" causes overtriggering: a fallback plants its case. LLM drafts add conditions by reflex ("spawn a reviewer only when the merge crosses an expensive seam," "re-review only if the fix touched the blocked path," "if the user declines, keep going"), and each one turns a rule into a judgment call.
+
+State the default as a directive. Keep a condition only when the instruction is wrong on the other side and both sides occur, and make the trigger checkable; a condition the agent can't check ("when you think it's done," "as needed") gets guessed, usually conveniently. Delete fallbacks for cases the agent's role rules out. Before cutting a condition, read the flat version as an instruction that now always fires: "probe to settle findings" makes a reviewer probe a finding about file size, and "retry a failed fix on Opus" escalates a fix that failed on a bad brief.
