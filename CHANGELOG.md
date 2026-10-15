@@ -5,6 +5,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 ## [Unreleased]
 
 ### Changed
+- `prompt-principles` resources state the behavior positively: write caller-agnostic, brief spawns as if they have no history, verify with external checks.
 - `prompt-reviewer` keeps Grok as an explicit option but never falls back to it.
 - `prompt-dev`: reads the artifact skill, `prompt-level.md`, the level resource, and the Meridian resources before writing or editing any agent or skill, not only "for Meridian agents".
 - Skill and agent descriptions in this package say when to use them, not what they contain.

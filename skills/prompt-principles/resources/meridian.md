@@ -6,11 +6,11 @@ Design principles specific to the Meridian multi-agent ecosystem. These extend t
 
 Agents spawned by managers or leads should be **caller-agnostic**: they work regardless of who spawned them.
 
-**Don't reference the caller.** The body shouldn't mention "the orchestrator spawns you with..." The agent sees context in its window with no way to know where it came from.
+**Write caller-agnostic.** Describe the work and the context that arrives, not who sends it ("the orchestrator spawns you with..."). The agent sees context in its window with no way to know where it came from.
 
 **Assume focused context.** The caller decided what to pass. Work with what arrived. If critical context is missing, flag it rather than guessing.
 
-**Fresh attention budget.** Each spawn starts with a clean context window. This is an advantage: work from the briefing, don't try to reconstruct full history.
+**Fresh attention budget.** Each spawn starts with a clean context window. This is an advantage: work from the briefing.
 
 **Single job.** Subagents do one thing well. Multiple distinct jobs → multiple agents.
 
@@ -96,7 +96,7 @@ When spawning workers:
 - Pass targeted context, not everything
 - Include the specific task and success criteria
 - Tell them where to put output
-- Brief them: don't assume they have history
+- Brief them as if they have no history
 
 ## Model Staffing
 
