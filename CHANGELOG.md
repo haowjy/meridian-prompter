@@ -6,10 +6,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ### Changed
 - Review fixes: reviews run on a model family other than the author's (`system-level.md`, `meridian.md`); `skill-level.md` sets `model-invocable: false` for caller-injected skills; `@prompt-tester` checks read-only agents never write.
-- `prompt-principles` carries the prompt-text principles in its body (attention, structure, positive framing, reasons, altitude, leading words, weak options, flat instructions); `resources/prompt-level.md` is gone. They govern every line, so they load instead of waiting to be opened. `agent-artifacts`: read an agent's history before merging, deleting, or narrowing it; keep explicit-only models `no-fallback` everywhere. `@prompt-dev` loads `explore-and-engage`.
+- `prompt-principles` folds `resources/prompt-level.md` into its body as one sequence (placement and structure, every line, say what to do, reasons, altitude, flat instructions, leading words): it governs every line, so it loads instead of waiting to be opened. Benchmark citations moved to `resources/research.md`. `agent-artifacts`: read an agent's history before merging, deleting, or narrowing it; keep explicit-only models `no-fallback` everywhere. `@prompt-dev` loads `explore-and-engage`.
 - `prompt-principles` resources state the behavior positively: write caller-agnostic, brief spawns as if they have no history, verify with external checks.
 - `prompt-reviewer` keeps Grok as an explicit option but never falls back to it.
-- `prompt-dev`: reads the artifact skill, `prompt-level.md`, the level resource, and the Meridian resources before writing or editing any agent or skill, not only "for Meridian agents".
+- `prompt-dev`: reads the artifact skill, the level resource, and the Meridian resources before writing or editing any agent or skill, not only "for Meridian agents".
 - Skill and agent descriptions in this package say when to use them, not what they contain.
 - Lead guidance (`system-level.md`, `meridian.md`, `agent-artifacts`) no longer says leads never implement: delegate what spends decision context or needs an independent check; do small fixes and glue directly. The 15–25 iteration cap is replaced by stopping at the second finding of the same failure class.
 - `prompt-principles`: new "State Instructions Flat": default to unconditional directives, keep a condition only when the instruction flips, citing AgentIF's measured drop in compliance on conditional constraints.

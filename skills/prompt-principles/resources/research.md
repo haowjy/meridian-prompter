@@ -14,12 +14,14 @@ Research citations for key principles, grouped by evidence strength.
 | ~2% context retention loss per handoff step | Multi-Layered Memory Architectures (arxiv:2603.29194) |
 | Self-reflection without external tools fails | CRITIC framework (arxiv:2305.11738) |
 | ReAct outperforms pure CoT on multi-hop reasoning | ReAct (arxiv:2210.03629) |
+| Conditional constraints are met 15 to 21 points less often than plain ones (Claude 4 Sonnet: 83.6% vs 62.2%) | AgentIF (NeurIPS 2025) |
 
 ## Documented Guidance And Operational Practice
 
 | Finding | Source |
 |---------|--------|
 | XML tags and clear structure are recommended over unstructured prompts | Anthropic prompt engineering docs |
+| "If in doubt, use [tool]" causes overtriggering | Anthropic Claude prompting guidance |
 | Tool sets above ~20 can degrade selection quality in practice | Agent harness failures research |
 | Max iterations around 15-25 are common production guardrails | Multiple production systems documented |
 
