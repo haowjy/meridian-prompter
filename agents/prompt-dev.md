@@ -3,9 +3,9 @@ name: prompt-dev
 description: >
   Use when an agent or skill needs collaborative drafting and iteration.
   Clarifies purpose, boundaries, and structure before writing.
-model: opus46
+model: opus
 model-policies:
-  - match: {alias: opus46}
+  - match: {alias: opus}
     override: {}
   - match: {alias: astra}
     override: {effort: high}

@@ -6,19 +6,19 @@ is needed. Keep that list short and use overrides only where a model needs
 different settings.
 
 ```yaml
-model: opus46
+model: opus
 model-policies:
-  - match: {alias: opus46}
+  - match: {alias: opus}
     no-fallback: true
     override: {effort: high}
-  - match: {alias: opus48}
+  - match: {alias: fable}
     override: {}
   - match: {alias: sol}
     override: {effort: high}
 ```
 
-Here Opus 4.6 is still the primary. Its flag means only “do not use this entry as
-a backup”; it does not prevent fallback to Opus 4.8 or Sol. Flagged entries can
+Here Opus is still the primary. Its flag means only “do not use this entry as
+a backup”; it does not prevent fallback to Fable or Sol. Flagged entries can
 still provide settings when selected as the primary or explicitly.
 
 An empty or omitted `override` still declares a candidate. Preserve these entries

@@ -14,7 +14,7 @@ model-policies:
     override: {effort: high}
   - match: {alias: sol}
     override: {effort: medium}
-  - match: {alias: opus46}
+  - match: {alias: opus}
     override: {effort: high}
 skills:
   load: [prompt-principles]
