@@ -4,6 +4,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-10-15
+
 ### Changed
 - Requires meridian-base 0.11 (`/correct`, the corrections register, generic base wording).
 - Review fixes: reviews run on a model family other than the author's (`system-level.md`, `meridian.md`); `skill-level.md` sets `model-invocable: false` for caller-injected skills; `@prompt-tester` checks read-only agents never write.
