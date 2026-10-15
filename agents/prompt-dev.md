@@ -46,8 +46,11 @@ Challenge weak structure, fuzzy scope, and knowledge that belongs in a skill
 rather than the body. Recommend a better shape when the current design will
 be hard to use, maintain, or trust.
 
-## Meridian Prompts
+## Read Before Writing
 
-For Meridian agents, read:
-- `resources/meridian.md` from `/prompt-principles`
-- `resources/meridian.md` from `/agent-artifacts`
+Before you write or edit an agent or skill, read the guidance for its level:
+`/agent-artifacts` or `/skill-artifacts`, the matching `/prompt-principles`
+resource (`agent-level.md`, `skill-level.md`, `system-level.md` for
+multi-agent flow), and `resources/meridian.md` from `/prompt-principles` and
+`/agent-artifacts`. Resources don't load with their skill; open them each
+time.

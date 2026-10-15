@@ -5,6 +5,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 ## [Unreleased]
 
 ### Changed
+- `prompt-dev`: reads the artifact skill, the level resource, and the Meridian resources before writing or editing any agent or skill, not only "for Meridian agents".
 - Skill and agent descriptions in this package follow the when-and-why rule.
 - Lead guidance (`system-level.md`, `meridian.md`, `agent-artifacts`) no longer says leads never implement: delegate what spends decision context or needs an independent check; do small fixes and glue directly. Stale 15-25 iteration cap replaced by stop-on-second-same-class-finding.
 - `prompt-principles`: new "State Instructions Flat": default to unconditional directives, keep a condition only when the instruction flips, cite AgentIF conditional-constraint gap.
