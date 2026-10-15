@@ -9,6 +9,7 @@ model-policies:
   - match: {alias: sol}
     override: {effort: xhigh}
   - match: {alias: grok}
+    no-fallback: true
     override: {effort: high}
   - match: {alias: opus}
     override: {effort: high}

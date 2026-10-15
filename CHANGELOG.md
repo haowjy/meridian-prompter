@@ -5,6 +5,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 ## [Unreleased]
 
 ### Changed
+- `prompt-reviewer` keeps Grok as an explicit option but never falls back to it.
 - `prompt-dev`: reads the artifact skill, the level resource, and the Meridian resources before writing or editing any agent or skill, not only "for Meridian agents".
 - Skill and agent descriptions in this package say when to use them, not what they contain.
 - Lead guidance (`system-level.md`, `meridian.md`, `agent-artifacts`) no longer says leads never implement: delegate what spends decision context or needs an independent check; do small fixes and glue directly. The 15–25 iteration cap is replaced by stopping at the second finding of the same failure class.
