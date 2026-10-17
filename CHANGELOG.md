@@ -4,6 +4,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+## [0.5.1] - 2026-10-17
+
 ### Changed
 - `agent-artifacts`: Meridian does tell spawns their final message is the report; bodies say only what it holds. `edit: deny` doesn't stop shell writes; web search goes through built-in tools under the workspace sandbox; only cloning needs full access.
 - `prompt-dev`: loop limits (third round of fixes or fourth review round means rethinking the design; a second redesign goes to the user); `@cold-reader` reads new prompt text.
