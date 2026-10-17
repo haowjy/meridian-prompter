@@ -6,13 +6,14 @@ requires-mars = ">=0.14.0"
 
 [dependencies.meridian-base]
 url = "https://github.com/haowjy/meridian-base"
-version = ">=0.11.3, <0.12.0"
+version = ">=0.11.4, <0.12.0"
 skills = [
     "explore-and-engage",
     "grill",
     "grill-with-evidence",
     "intent-modeling",
     "llm-writing",
+    "notify",
     "session-mining",
 ]
 

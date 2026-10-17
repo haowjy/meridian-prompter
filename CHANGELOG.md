@@ -4,6 +4,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- prompt-dev loads `/notify` from meridian-base.
+
 ## [0.5.1] - 2026-10-17
 
 ### Changed
