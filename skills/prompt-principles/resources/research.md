@@ -1,20 +1,21 @@
 # Research Backing
 
-Research citations for key principles, grouped by evidence strength.
-
 ## Direct Empirical Support
 
 | Finding | Source |
 |---------|--------|
 | Position matters (primacy/recency) | "Lost in the Middle" (Liu et al., 2023) |
 | Prompt repetition can improve compliance on non-reasoning models | arxiv:2512.14982 |
-| Persona prompting hurts reasoning | PRISM study (arxiv:2603.18507) |
-| RLHF models follow instructions better than pre-RLHF | InstructGPT (arxiv:2203.02155) |
+| Persona prompts help some tasks (alignment, style) and hurt others (reasoning accuracy) | PRISM study (arxiv:2603.18507) |
 | Multi-agent orchestrator outperforms single on breadth-first queries in one study | Anthropic multi-agent research (90.2% improvement) |
-| ~2% context retention loss per handoff step | Multi-Layered Memory Architectures (arxiv:2603.29194) |
 | Self-reflection without external tools fails | CRITIC framework (arxiv:2305.11738) |
-| ReAct outperforms pure CoT on multi-hop reasoning | ReAct (arxiv:2210.03629) |
 | Conditional constraints are met 15 to 21 points less often than plain ones (Claude 4 Sonnet: 83.6% vs 62.2%) | AgentIF (NeurIPS 2025) |
+| Adding requirements doesn't reliably help: they compete; underspecified prompts regress about twice as often across model or prompt changes | Yang et al. 2025, "What Prompts Don't Say" (arxiv:2505.13360) |
+| Following several instructions at once collapses past five or six simultaneous constraints (preprint) | Vasileva 2026, "LLMs Can Follow Instructions, But Not Many at Once" (arxiv:2608.12426) |
+| Curated skills add 16 points on average, but 16 of 84 tasks got worse, and self-generated skills gave no average benefit | Li et al. 2026, SkillsBench (arxiv:2602.12670v1; later versions report different numbers) |
+| One level of disclosure helps; a second routing level never helped in aggregate and sometimes hurt (long-document QA) | He et al. 2026 (arxiv:2607.17598) |
+| Multi-agent failures cluster in system design issues, inter-agent misalignment, and task verification (over 1,600 traces, 7 frameworks) | Cemri et al. 2025, MAST (arxiv:2503.13657) |
+| An AGENTS.md file cut median runtime 29% and output tokens 17% with comparable completion (10 repos, 124 PRs) | Lulla et al. 2026 (arxiv:2601.20404) |
 
 ## Documented Guidance And Operational Practice
 
@@ -22,28 +23,16 @@ Research citations for key principles, grouped by evidence strength.
 |---------|--------|
 | XML tags and clear structure are recommended over unstructured prompts | Anthropic prompt engineering docs |
 | "If in doubt, use [tool]" causes overtriggering | Anthropic Claude prompting guidance |
-| Tool sets above ~20 can degrade selection quality in practice | Agent harness failures research |
-| Max iterations around 15-25 are common production guardrails | Multiple production systems documented |
 
-## Key Quotes from Research
+## Practitioner Collections
 
-On self-critique:
-> "Almost every published 'success' of reflection is actually a success of verification. Strip away the external tool:the compiler, the test suite, the search engine:and the gains vanish."
-
-On multi-agent complexity:
-> "Default to a single agent and only introduce multi-agent architecture when you have evidence that additional complexity delivers proportional value."
-
-On task decomposition:
-> "In most cases, task decomposition has limited impact: if the task is simple, a single agent can solve it; if it is too difficult, multi-agent systems still fail."
-
-On convergence:
-> "LLMs are notoriously bad at knowing when to stop:they'll either quit too early or never quit at all."
-
-On loop guards:
-> "Loop guardrails are based on external enforcement: the system running the agent, not the agent itself, is ultimately responsible for guaranteeing termination."
-
-On implementation approach:
-> "Most successful implementations weren't using complex frameworks but simple, composable patterns."
+| Practice | Source |
+|---|---|
+| Pointer wording decides reach; disclose by branch; completion criteria (clarity, demand); environment restated in a doc is a cache; sediment | Matt Pocock, `writing-for-agents` and `SKILL-MECHANICS.md` (github.com/mattpocock/skills, 2026) |
+| Accept a change only for an observed failure in a real session | Matt Pocock, `SCOPE.md` |
+| Blind evaluation: organic prompts, sanitized names, a judge on another family, grading from transcripts; edit skills in their own change | Cursor pstack, `playbooks/eval.md` and `docs/guide/09-make-it-yours.md` (github.com/cursor/plugins) |
+| Encode lessons in structure: architecture, types or lint, tests, then docs; proceed on reversible work | Cursor pstack, `principle-encode-lessons-in-structure`, `principle-never-block-on-the-human` |
+| Trigger tests with positive and near-miss queries against a no-skill baseline; prescription by fragility | Anthropic skill-authoring best practices and `skill-creator` (2025-2026) |
 
 ## Surveys for Deeper Reading
 

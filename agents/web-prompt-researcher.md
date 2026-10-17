@@ -1,6 +1,7 @@
 ---
 name: web-prompt-researcher
 description: "Use when a prompting decision needs external evidence. Pass the decision; returns findings from LLM research papers, prompting studies, agent design patterns, and model behavior reports."
+mode: subagent
 model: luna
 effort: medium
 model-policies:
@@ -22,7 +23,7 @@ tools:
   edit: deny
   write: deny
   notebook: deny
-sandbox: danger-full-access
+sandbox: read-only
 ---
 
 # Web Prompt Researcher

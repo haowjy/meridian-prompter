@@ -1,36 +1,28 @@
 # Skill-Level Principles
 
-Skills hold reusable knowledge without bloating every agent that needs it.
+## Write for the Agent Mid-Task
+
+Write the method, criteria, and vocabulary for the work the skill covers, as instructions that hold in any agent that loads it. Leave the agent's job and delegation to the agent's body: a skill that assumes its caller ("the orchestrator", "your lead") or restates a role breaks in every other agent that loads it. A skill can define what its method produces, such as a review's findings and verdict; the agent's body owns its overall report.
 
 ## Extract for Reuse, Not for Tidiness
 
 Move something into a skill when multiple agents need the same knowledge or method. If only one agent needs it, keep it in the body; one place to maintain. The test is whether multiple agents would get lighter and clearer if the content moved out.
 
-## Loading Is Part of the Design
+## Choose How It Loads
 
-Skills reach agents through four independent paths, each serving a different audience:
+Each way a skill reaches an agent spends a different budget:
 
-- **`load`**: always in the system prompt. Reserved for knowledge the agent genuinely needs every run. Every loaded skill costs context on every turn.
-- **`available`**: the agent can self-load mid-session when `model-invocable` is true. This is for the agent's own discovery: skills it might need but shouldn't pay for until it does.
-- **`description`**: the caller's discovery surface. A parent agent reads child descriptions to learn what skills can be attached. List attachable skill names here so orchestrators know what to compose.
-- **`--skills` (caller injection)**: a parent passes skills onto a subagent at spawn time. This bypasses `available` entirely; any bundled skill can be injected regardless of the agent's own configuration.
+- **Always loaded** costs context on every turn of every run. Reserve it for what the agent needs every run.
+- **Self-loaded on demand** costs one description line on every turn, and that line's wording decides whether the agent ever loads it.
+- **Attached by a caller** costs nothing until a caller that knows the work needs it attaches it.
+- **Invoked only by a human** costs no context and spends the human's memory instead: they have to know it exists.
 
-`available` and `--skills` serve different audiences. `available` is the agent looking inward ("what can I load myself?"). `--skills` is the caller reaching in from outside ("take this too"). They do not need to match.
+Pick the cheapest path that still reaches the agent when the work needs it. `/skill-artifacts` maps each path to its fields.
 
-When you know at agent definition time exactly which skills an agent needs, use `load`. When the skill is sometimes needed and the caller knows when, set `model-invocable: false` and let the caller inject it with `--skills`.
+## Disclose Progressively
 
-## The Top Layer Should Route, Not Teach
-
-The skill body should carry the core guidance and point to deeper resources. Examples, variants, long procedures, and edge-case mechanics belong in resource files. This keeps the always-loaded layer compact while preserving depth when the task actually needs it.
-
-## Decompose So Agents Can Load Selectively
-
-Split resources by real usage boundaries, not just by topic names. If two files are always loaded together, they probably want to be one file. If one file mixes several use cases, agents load irrelevant context just to reach the paragraph they need.
-
-## Skills Teach; Agents Decide
-
-Skills provide method, judgment criteria, vocabulary, and durable reference material. Agents apply that guidance to a concrete situation, make decisions, and produce outputs. When a skill starts owning decisions, it becomes a pseudo-agent. When an agent carries all shared method inline, it becomes bloated and hard to maintain.
+`/prompt-principles` covers what goes in the body and what goes behind a pointer. Inside a skill, a resource loads only when the agent opens it, so the body names each resource with when to open it; a resource nothing names is rarely read. Split resources by the cases that use them: if two files always load together, merge them; if one file mixes cases, agents load irrelevant context to reach the paragraph they need.
 
 ## Separate Mechanism from Method
 
-Keep tool operation separate from guidance about how to use the tool well. Mechanism is reusable across tasks; method depends on what the worker is trying to accomplish. When they are separate, a tool skill can support many methodologies and a methodology skill can survive a tool change.
+Keep tool operation separate from guidance about how to use the tool well. Mechanism is reusable across tasks; method depends on what the worker is trying to accomplish. When they are separate, a tool skill can support many methodologies and a methodology skill can survive a tool change. Put a deterministic step in a script, and say whether the agent runs it or reads it. A script that handles ordinary errors itself keeps them out of the agent's context.

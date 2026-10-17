@@ -1,31 +1,42 @@
 # System-Level Principles
 
-Multi-agent systems are useful when they create better focus, better verification, or real parallelism. They are costly when they only redistribute vague work across more prompts.
-
 ## Start with the Simplest System That Can Hold the Work
 
 Default to one agent, then add more only when the split earns its overhead. Every extra agent adds handoff cost, debugging cost, coordination risk, and opportunities for silent scope loss. Multi-agent structure is worthwhile when one context window is not enough, when different kinds of thinking need different workers, or when independent work can proceed in parallel.
 
 ## Leads Spend Context on Decisions
 
-A lead's scarce resource is the context it uses for decisions across a long task. Delegate work that would spend that context or that needs an independent check: broad exploration, large implementation, review. Do small fixes and glue directly when briefing a worker costs more than the change. A lead that implements large pieces loses the vantage point to notice drift; one that delegates a two-line fix pays for a briefing and a cold worker to save nothing.
+A lead's scarce resource is the context it uses for decisions. Write leads to delegate work that would spend that context, work that can run in parallel, work that needs a different model, and work that needs an independent check (broad exploration, large implementation, review), and to do the rest themselves. Write no rule that makes a lead spawn for every piece of work: delegating a two-line fix pays for a briefing and a cold worker to save nothing. The tradeoff runs both ways, since a lead deep in a large implementation loses the vantage point to notice drift.
 
 ## Handoffs Are a First-Class Design Problem
 
-The caller owns the handoff. Pass objectives, constraints, prior decisions, and concrete artifacts instead of making the receiving agent rediscover context that already exists upstream. Name explicit files and outputs rather than broad categories. Weak handoffs waste time and silently drop requirements at exactly the points where the workflow is narrowing.
+The caller owns the handoff. Write leads to pass objectives, constraints, prior decisions, and concrete artifacts, named as explicit files and outputs rather than broad categories, so the receiving agent doesn't rediscover context that already exists upstream. Weak handoffs waste time and silently drop requirements at exactly the points where the workflow is narrowing.
+
+Design for the handoff on both sides. Descriptions name the inputs an agent needs, so a caller can brief it. Leads record decisions, plans, and findings on disk as they go, so each handoff can name its inputs: context that lives only in a conversation is lost at compaction and can't be passed.
 
 ## Verification Must Come from Outside the Worker
 
-Verify with external checks (tests, builds, search), not self-critique alone. Review runs in a separate agent on a model family other than the implementer's: a worker judging its own output, or a reviewer sharing its model, reproduces the same blind spots.
+Write verification as external checks (tests, builds, search), not self-critique alone, and put review in a separate agent on a model family other than the implementer's: a worker judging its own output, or a reviewer sharing its model, reproduces the same blind spots. A reviewer on the family the work targets can add a reading as the running agent would, but it doesn't count as the independent check.
 
 ## Loop Control Belongs Outside the Prompt
 
-Iteration limits, termination conditions, and convergence checks belong to the system or to the coordinating agent, not to the worker prompt. Agents are poor judges of when to stop, especially when they are asked both to keep working and to decide whether more work is needed.
+Iteration limits, termination conditions, and convergence checks belong to the system or to the coordinating agent, not to the worker prompt. Agents are poor judges of when to stop, especially when they are asked both to keep working and to decide whether more work is needed. Give the coordinating agent:
+
+- a definition of convergence, such as no blocking findings
+- a concrete limit for each loop, and where the impasse goes at that limit: the coordinator's caller
+- a patching limit: a concern (the code behind one responsibility) that would need a third round of fixes ends patching, and the coordinator looks for the shared cause or a redesign
+- explicit deferral as a valid exit
 
 ## Alignment Fails at Narrowings
 
-The dangerous points in a workflow are the narrowings, where wide exploration collapses into a smaller artifact such as a plan, a decision, or an implementation brief. That is where requirements disappear. Verify alignment at those transitions before moving on, because end-of-pipeline review catches drift only after downstream work has already amplified it.
+The dangerous points in a workflow are the narrowings, where wide exploration collapses into a smaller artifact such as a plan, a decision, or an implementation brief. That is where requirements disappear. Write leads to verify alignment at those transitions before moving on, because end-of-pipeline review catches drift only after downstream work has already amplified it. At each narrowing the lead tells parallel workers what each owns, so they don't collide, and gives a reviewer the source alongside the output, since alignment review needs both.
 
 ## Model Choice Is Part of the System Design
 
-Choose models for the kind of thinking each agent needs, not just for price or speed. A good match strengthens the intended lane of work. A bad match produces either shallow judgment where depth was needed or expensive overthinking where straightforward execution would have been better.
+Choose models for the kind of thinking each agent needs, not just for price or speed.
+
+- **Clear-goal execution** (coders, testers, builders with clear specs): fast, instruction-faithful models. They excel when the target is unambiguous and overthink when it isn't.
+- **Ambiguity handling** (primary agents, leads, design exploration, user-facing roles): models that push back, ask questions, and iterate, for tasks where the right answer emerges through dialogue.
+- **Judgment and review** (adversarial review, architectural decisions, tradeoff analysis): models with evaluation depth.
+
+Put default models in agent definitions and model choice in the skills that guide staffing, not in bodies. When work needs more depth, change the model rather than the agent: an agent picked for its model brings its whole procedure along.

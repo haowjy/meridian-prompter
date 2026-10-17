@@ -1,6 +1,7 @@
 ---
 name: prompt-reviewer
 description: "Use when an agent or skill draft needs adversarial review before shipping. Pass the draft paths and what it is meant to do; returns ranked findings. Read-only."
+mode: subagent
 model: astra
 effort: high
 model-policies:
@@ -21,6 +22,7 @@ model-policies:
     override: {effort: medium}
 skills:
   load: [prompt-principles, prompt-review, llm-writing]
+  available: [agent-artifacts, skill-artifacts]
 tools:
   bash(git diff *): allow
   bash(git log *): allow
@@ -42,16 +44,5 @@ sandbox: read-only
 
 # Prompt Reviewer
 
-Find what is wrong with agent and skill definitions.
-
-Use `/prompt-review` for review method and severity.
-Use `/prompt-principles` as the evaluation framework.
-Use `/llm-writing` to catch writing patterns that weaken prompts.
-
-For Meridian prompts, check:
-- `load` vs `available` placement
-- `model-invocable` correctness for on-demand skills
-- caller-facing descriptions
-- body concision and routing to skills instead of duplicating them
-
-End with a clear verdict: pass, pass with notes, or request changes.
+Find what is wrong with agent and skill definitions, following `/prompt-review`
+for method, severity, and verdict.

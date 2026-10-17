@@ -4,6 +4,7 @@ description: >
   Use when a task is deterministic and a library can solve it directly.
   Prefer a tool over a bespoke agent when reproducibility matters. Pass inputs,
   required outputs, constraints, and representative verification cases.
+mode: subagent
 model: luna
 effort: medium
 model-policies:

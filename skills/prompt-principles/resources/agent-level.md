@@ -1,10 +1,8 @@
 # Agent-Level Principles
 
-An agent prompt should define a clear job, a clear boundary, and a clear mode of thinking.
-
 ## Keep the Body Focused on the Job
 
-Use the body for the agent's purpose, boundaries, and way of engaging. Put reusable method in skills. This keeps role changes separate from shared knowledge changes and makes the body easier to scan.
+Use the body for the agent's purpose, boundaries, and way of engaging. Put reusable method in skills.
 
 ## Split by Cognitive Mode
 
@@ -14,10 +12,26 @@ The best agent boundaries come from how the work thinks, not from what domain it
 
 Behavioral instructions are more reliable than identity framing. Tell the agent what to pay attention to, how to judge success, what to question, and what to produce. Persona language adds flavor without adding control.
 
+## Define the Job, Not How Far to Look
+
+A body that fences the agent to its brief ("stay in scope", "only the diff", "work with what arrived") makes it report a cause it finds outside the brief as an aside, or drop it. Say what the job is and what success looks like; ownership limits, such as which files a worker may edit, belong in the brief, where they fit the task.
+
+## Name What Comes Back
+
+Have the agent write results that outlive the conversation to files, which survive compaction and can be passed to the next agent, and say what its final report holds: what it found or changed, where it wrote it, and what it left unverified.
+
 ## Spawn When the Work Needs Fresh Capability
 
-Spawn a new agent when the work needs a different model or a clean context window. Use a mode-shift skill when the shift stays within the current agent's lane. This keeps spawning tied to real changes in capability or attention budget.
+Spawn a new agent when the work needs a different model or a clean context window. Use a skill that shifts the agent's mode when the shift stays within the current agent's lane.
+
+## Proceed on What Can Be Undone
+
+Write agents to make reversible decisions within what they were asked to do and report what they chose, and to stop before an irreversible action (deleting data, pushing, sending something outside) or an action beyond what they were authorized to do. A spawned agent usually has no human to ask, so a question it can't send either stalls it or turns into an unstated guess.
+
+## Write the Description Against Its Neighbors
+
+A caller chooses among agents by their descriptions. Beyond when to use it, what to pass, and what comes back, write the description in words that tell the agent apart from its neighbors; persona or "helps with X" give a caller nothing to route on. Check it with the routing test in `evaluation.md`.
 
 ## Write for Reuse Upstream and Downstream
 
-Bodies should stay caller-agnostic so the agent can work from whatever context it receives. Descriptions should teach callers when to use the agent, what to pass, and what to expect back. If the specialization lives entirely in the caller's framing, keep one generic agent rather than creating many narrow variants. New agents earn their existence when they carry a distinct mode of thought, toolset, or durable operating method.
+Bodies should stay caller-agnostic so the agent can work from whatever context it receives. If the specialization lives entirely in the caller's framing, keep one generic agent rather than creating many narrow variants. Before splitting off a new agent, sharpen the descriptions and tools of the existing ones; a misrouted job is often a description problem. New agents earn their existence when they carry a distinct mode of thought, toolset, or durable operating method. Before merging, deleting, or narrowing an agent, read its history: a different default model, a role the human asked for, or a job beyond what its body now says is a reason it exists, so name each one in the proposal.

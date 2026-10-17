@@ -5,9 +5,21 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 ## [Unreleased]
 
 ### Changed
+- `agent-artifacts`: Meridian does tell spawns their final message is the report; bodies say only what it holds. `edit: deny` doesn't stop shell writes; web search goes through built-in tools under the workspace sandbox; only cloning needs full access.
+- `prompt-dev`: loop limits (third round of fixes or fourth review round means rethinking the design; a second redesign goes to the user); `@cold-reader` reads new prompt text.
+- `prompt-principles`: drops the line that invited replacing a removed limit.
+- Agents declare `mode` (prompt-dev primary, the rest subagent). `system-level`: defines concern where the patching limit names it.
+- Cut duplication: prompt-review's checklist (restated `/prompt-principles`), agent-artifacts' Where Artifacts Go, skill-level's Skills Teach; Agents Decide, prompt-tester's Testing Skills, file-intro lines, and explanatory tails in the principles and level resources.
+- `agent-artifacts`: fallbacks are decided per agent; a model explicit-only in one agent can be a backup in another.
 - `prompt-dev`: Verify Before Shipping. Behavior changes get two `@prompt-reviewer`s on different model families, one the prompt's target family; wording-only changes get one. `@prompt-tester` runs on the final text. Report each reviewer's model and verdict.
-- `prompt-principles` `meridian.md`: a concern that would need a third round of fixes ends patching; every loop gets a concrete limit.
-- `web-prompt-researcher`: bash and full access, so `wsearch` and `wfetch` run.
+- `web-prompt-researcher`: bash for shell search tools on harnesses without built-in web tools; stays read-only.
+- Authoring skills restructured so each meaning has one home and each file addresses one reader. Principles from mattpocock/skills (`writing-for-agents`) and cursor pstack folded in.
+- `prompt-principles` body (harness-agnostic, for any document an agent reads): new **Write for the Reader of Each Layer** (description, agent body, skill body, resource, authoring guide), **Keep One Source of Truth** (environment restated is a cache; sediment), **End Each Step on a Completion Criterion**, **Progressive Disclosure** moved up beside it and widened (each layer holds one depth; body keeps the judgment and steps every run takes, pointers carry the rest; pointer wording decides reach; point straight to the target, while summary hierarchies like AGENTS.md trees earn their levels), **Encode Lessons in Structure First**, **Test on Real Runs**. Altitude now matches prescription to fragility, and keeps intent when constraints go. Reasons only where the model must generalize.
+- New `resources/evaluation.md`: start from the failure or target behavior, baseline comparison, trigger and routing tests, blind candidates, judge on another family, grade from transcripts.
+- `agent-level.md`: define the job, not how far to look (replaces "Assume focused context… work with what arrived"); name what comes back; proceed on what can be undone; description as routing contract tested against neighbors. `skill-level.md`: write for the agent mid-task; loading as budgets (design only); resources load only when named; decompose by branch; scripts say run or read. `system-level.md`: leads may do any work and delegate by what a worker does better; handoffs through descriptions and on-disk records; loop control with concrete limits; models by cognitive mode, chosen in profiles.
+- Meridian specifics move into the format skills: `/agent-artifacts` (inventory callers see, injected guidance, how context reaches a spawn, models, harness permissions, artifact locations, packages) and `/skill-artifacts` (loading and invocation fields, `user-invocable`, listing by type). `prompt-principles/resources/meridian.md` and `agent-artifacts/resources/meridian.md` removed; the loading-field list exists once.
+- `prompt-review` checks wrong reader, unjustified limits, duplication and environment caches, model coupling, prose a permission could enforce, weak pointers, missing completion criteria; one set of verdict words (approve, approve with notes, request changes). `agent-artifacts` and `skill-artifacts` are self-loadable; `@prompt-reviewer` and `@prompt-dev` list them as available. `@prompt-tester` follows `evaluation.md`, writes its test projects in scratch, and its description says what to pass and what returns. `@prompt-dev`: one target-family reviewer plus one on another family; tests scale to the change.
+- `research.md`: unsupported rows removed (handoff-loss figure, unsourced quotes, rows no principle uses); MAST, SkillsBench (pinned v1), PRISM and Lulla rows corrected.
 
 ## [0.5.0] - 2026-10-15
 
