@@ -4,6 +4,11 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- `prompt-dev`: Verify Before Shipping. Behavior changes get two `@prompt-reviewer`s on different model families, one the prompt's target family; wording-only changes get one. `@prompt-tester` runs on the final text. Report each reviewer's model and verdict.
+- `prompt-principles` `meridian.md`: a concern that would need a third round of fixes ends patching; every loop gets a concrete limit.
+- `web-prompt-researcher`: bash and full access, so `wsearch` and `wfetch` run.
+
 ## [0.5.0] - 2026-10-15
 
 ### Changed

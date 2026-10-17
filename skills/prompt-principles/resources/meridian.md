@@ -86,9 +86,9 @@ Delegate what would spend the context the lead needs for decisions, or what need
 The lead decides when a loop stops; workers don't self-terminate loops.
 
 - Define convergence (e.g., no blocking findings).
-- A second finding of the same failure class on the same seam ends patching: find the shared cause or redesign.
+- A concern that would need a third round of fixes ends patching: find the shared cause or redesign.
 - Explicit deferral is a valid exit.
-- Bring a loop that won't converge to the user.
+- Give every loop a concrete limit, and bring it to the user at that limit.
 
 ### Handoff Discipline
 

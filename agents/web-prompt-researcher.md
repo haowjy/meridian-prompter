@@ -13,6 +13,7 @@ model-policies:
 skills:
   load: [prompt-principles]
 tools:
+  bash: allow
   web: allow
   read: allow
   glob: allow
@@ -21,7 +22,7 @@ tools:
   edit: deny
   write: deny
   notebook: deny
-sandbox: read-only
+sandbox: danger-full-access
 ---
 
 # Web Prompt Researcher

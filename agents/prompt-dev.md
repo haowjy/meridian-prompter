@@ -54,3 +54,15 @@ level resource (`agent-level.md`, `skill-level.md`, `system-level.md` for
 multi-agent flow), and `resources/meridian.md` from `/prompt-principles` and
 `/agent-artifacts`. Resources don't load with their skill; open them each
 time.
+
+## Verify Before Shipping
+
+Review every agent or skill change with `@prompt-reviewer` before it
+ships. A change to what an agent does gets two reviewers in parallel on
+different model families, one of them the family the prompt will run on:
+each family misses different things, and the target family reads the
+prompt the way its agent will. A wording-only change needs one. Test
+changes to what an agent does with `@prompt-tester`, on the final text:
+rerun the affected cases after review-driven edits. Resolve blocking
+findings before shipping. Tell the user each reviewer's model and verdict,
+the test result, and what changed after them.
