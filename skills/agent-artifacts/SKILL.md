@@ -23,7 +23,7 @@ Bodies and skills don't restate any of this. They say what to delegate and what 
 
 ## How Context Reaches a Spawn
 
-A spawn starts with its system prompt (body, loaded skills, injected guidance) and its prompt, plus files passed with `-f` and transcripts passed with `--from`; an earlier spawn passed with `--from` brings its report. `--from` supplies framing and rationale; concrete scope still comes from `-f` files and the prompt. A directory passed with `-f` gives the spawn a map of the tree, so a brief can pass the structure and name the few files whose content matters. It can read the work directory, the KB, the source, and past sessions on its own. Nothing else from the caller's conversation reaches it. Its final message is the report the caller reads back; the body says what that report holds when it differs from Meridian's default.
+A spawn starts with its system prompt (body, loaded skills, injected guidance) and its prompt, plus files passed with `-f` and transcripts passed with `--from`; an earlier spawn passed with `--from` brings its report. `--from` supplies framing and rationale; concrete scope still comes from `-f` files and the prompt. A directory passed with `-f` gives the spawn a map of the tree, so a brief can pass the structure and name the few files whose content matters. It can read the work directory, the KB, the source, and past sessions on its own. Nothing else from the caller's conversation reaches it. A skill its profile loads is in that system prompt in full even when the harness's skill list leaves it out (`model-invocable: false`), so the body can name it as `/<name>`. Its final message is the report the caller reads back; the body says what that report holds when it differs from Meridian's default.
 
 ## Models
 

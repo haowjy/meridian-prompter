@@ -4,6 +4,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- `skill-artifacts`: a skill under `load` (or attached with `--skills`) arrives in full on every harness whatever its `model-invocable`; `model-invocable: false` + `load` gives one agent a skill no model finds by itself; the `# Skill: /<name>` header. `agent-artifacts`: a loaded skill is in context even when the harness's skill list omits it. `prompt-review` mechanics: `available` + `model-invocable: false` is the contradiction to catch.
+
 ## [0.5.2] - 2026-10-17
 
 ### Changed

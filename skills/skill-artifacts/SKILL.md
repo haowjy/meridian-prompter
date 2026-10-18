@@ -17,11 +17,13 @@ A skill is a directory under `skills/` with a `SKILL.md` and optional `resources
 
 ## Loading and Invocation
 
-- **`load`** in an agent profile puts the skill in that agent's system prompt every run.
+- **`load`** in an agent profile puts the skill's full text in that agent's system prompt every run, on every harness, whatever its `model-invocable`. A skill with `model-invocable: false` under one agent's `load` is how you give that agent a skill no model finds or loads by itself.
 - **`available`** in an agent profile lists the skill for the agent to load itself. The harness lists every model-invocable skill with its description, which is what the agent reads to decide; Meridian also lists the agent's available skills by name, grouped by type and marked not yet loaded, to draw attention to them.
-- **`--skills`** attaches skills at spawn time, whatever the agent's own lists say. A caller learns what it can attach from the agent's description.
-- **`model-invocable`** (default `true`) lets the model see and load the skill itself. `false` keeps an `available` skill out of the model's reach; attaching with `--skills` still works. Every model-invocable skill costs description tokens on every turn, so keep that pool small.
+- **`--skills`** attaches skills at spawn time the same way `load` does, whatever the agent's own lists say. A caller learns what it can attach from the agent's description.
+- **`model-invocable`** (default `true`) puts the skill in the harness's skill list, where any model can find and load it by itself. `false` takes it off that list: `load` and `--skills` still deliver it in full, but an `available` listing of it is a name the agent can't load. Every model-invocable skill costs description tokens on every turn, so keep that pool small.
 - **`user-invocable`** (default `true`) lets the human trigger the skill with `/name`.
+
+A loaded skill arrives headed `# Skill: /<name>` with a line saying its text is already loaded, so a body can tell the agent to follow `/<name>` even when the harness's skill list omits it.
 
 ## Types
 
