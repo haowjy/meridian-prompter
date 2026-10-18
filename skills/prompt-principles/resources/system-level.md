@@ -16,7 +16,7 @@ Design for the handoff on both sides. Descriptions name the inputs an agent need
 
 ## Verification Must Come from Outside the Worker
 
-Write verification as external checks (tests, builds, search), not self-critique alone, and put review in a separate agent on a model family other than the implementer's: a worker judging its own output, or a reviewer sharing its model, reproduces the same blind spots. A reviewer on the family the work targets can add a reading as the running agent would, but it doesn't count as the independent check.
+Write verification as external checks (tests, builds, search), not self-critique alone, and put review in a session of its own: a worker judging its own output carries the assumptions that produced the mistake. A reviewer on another model family adds a second set of blind spots and is usually the better pick, but a fresh session on the worker's model is an independent check too. A reviewer on the family the work targets adds a reading as the running agent would.
 
 ## Loop Control Belongs Outside the Prompt
 

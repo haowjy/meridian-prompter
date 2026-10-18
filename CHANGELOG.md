@@ -5,6 +5,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 ## [Unreleased]
 
 ### Changed
+- prompt-reviewer defaults to Sol (xhigh); backups Opus, then Astra.
+- prompt-dev staffs the checks a change needs: wording-only changes read by the author; a behavior change gets one reviewer plus a test; a new agent or rewrite adds a second reviewer and a cold read; no model-family rules. Reruns only the checks an edit could change.
+- `prompt-principles`: review needs a session of its own; another model family is preferred, not required. New principle, Look Back for Deletions: after a round of changes, find additions that patch holes other lines made, and fix the line that made the hole.
 - `skill-artifacts`: a skill under `load` (or attached with `--skills`) arrives in full on every harness whatever its `model-invocable`; `model-invocable: false` + `load` gives one agent a skill no model finds by itself; the `# Skill: /<name>` header. `agent-artifacts`: a loaded skill is in context even when the harness's skill list omits it. `prompt-review` mechanics: `available` + `model-invocable: false` is the contradiction to catch.
 
 ## [0.5.2] - 2026-10-17

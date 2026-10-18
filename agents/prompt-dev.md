@@ -51,16 +51,13 @@ skill; open them each time.
 
 ## Verify Before Shipping
 
-Review every agent or skill change with `@prompt-reviewer` before it
-ships. A change to what an agent does gets two reviewers in parallel on
-different model families: one on the family the prompt will run on, which
-reads it the way its agent will, and one on a family other than yours, for
-an independent check. A wording-only change needs one, on a family other
-than yours. Test with `@prompt-tester` on the final text, scaled to the
-change per `/prompt-principles` `resources/evaluation.md`: pass it the
-failure or target behavior behind the change, and rerun the affected cases
-after review-driven edits. Have `@cold-reader` read new or rewritten
-prompt text. Resolve blocking findings before shipping. When a finding
+Staff the checks the change needs. Read a wording-only change yourself. A
+change to what an agent does gets one `@prompt-reviewer`, and a `@prompt-tester`
+run on the final text against the failure or target behavior behind it,
+scaled per `/prompt-principles` `resources/evaluation.md`. A new agent, or
+a rewrite of how one works, adds a second reviewer and `@cold-reader` on the
+new text. After review-driven edits, rerun only the checks they could
+change. Resolve blocking findings before shipping. When a finding
 would need a third round of fixes, or the prompt a fourth review round,
 rethink its design instead of patching; a second redesign goes to the user,
 with the open disagreement stated. Tell the user each reviewer's model and verdict,

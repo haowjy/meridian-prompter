@@ -72,6 +72,13 @@ A leading word recruits a concept the model already holds, in fewer tokens than 
 
 A prompt line is the weakest guard: nothing fails when an agent skips it. Before writing a rule, look for a stronger home: a permission that denies the action, a frontmatter field, a script that does the step the same way every time, a check that fails loudly. When a structural fix exists, use it alone. Write the rule when the lesson needs judgment.
 
+## Look Back for Deletions
+
+Fixes accrete into lines that patch holes earlier lines made: an exemption
+for cases a broad rule got wrong, a rule that counters another, a pointer to
+a copy that drifted. After a round of changes, check each addition for this
+and fix the line that made the hole; the patch goes with it.
+
 ## Keep the Core Harness-Agnostic
 
 Load-bearing prompts (agent bodies, core skills) state intent: what to delegate, what context to pass, what the result must satisfy. Environment mechanics (CLI flags, tool names, launch commands) belong to the environment: the harness's own system prompt, or the tool's help surface the agent reads at runtime.
