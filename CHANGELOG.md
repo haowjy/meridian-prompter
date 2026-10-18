@@ -4,6 +4,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+## [0.5.3] - 2026-10-18
+
 ### Changed
 - prompt-reviewer defaults to Sol (xhigh); backups Opus, then Astra.
 - prompt-dev staffs the checks a change needs: wording-only changes read by the author; a behavior change gets one reviewer plus a test; a new agent or rewrite adds a second reviewer and a cold read; no model-family rules. Reruns only the checks an edit could change.
