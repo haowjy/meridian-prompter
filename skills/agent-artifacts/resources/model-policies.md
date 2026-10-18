@@ -11,14 +11,14 @@ model-policies:
   - match: {alias: opus}
     no-fallback: true
     override: {effort: high}
-  - match: {alias: fable}
+  - match: {alias: sonnet}
     override: {}
   - match: {alias: sol}
     override: {effort: high}
 ```
 
 Here Opus is still the primary. Its flag means only “do not use this entry as
-a backup”; it does not prevent fallback to Fable or Sol. Flagged entries can
+a backup”; it does not prevent fallback to Sonnet or Sol. Flagged entries can
 still provide settings when selected as the primary or explicitly.
 
 An empty or omitted `override` still declares a candidate. Preserve these entries

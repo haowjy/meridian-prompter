@@ -4,6 +4,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- prompt-dev never falls back to Fable (`no-fallback: true`); Fable is escalation only. The agent-artifacts model-policies example uses Sonnet as the backup.
+
 ## [0.5.3] - 2026-10-18
 
 ### Changed
