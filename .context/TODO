@@ -2,10 +2,16 @@
 
 Left from the reviewer/explorer/merge session (released as meridian-dev-workflow v0.15.5, meridian-base v0.11.10).
 
-## Not done
+## Next: watch it in the wild
 
-- Weigh a test miss by model. A miss on the shipping model, or one that recurs across models, points at the prompt; a miss on one weaker or cheaper model points at the model (model choice, or that model's own prompting guidance). Mark baselines that weren't isolated as inconclusive. Home: one paragraph in `skills/prompt-principles/resources/evaluation.md` (tester and prompt-dev both read it), plus one clause in `agents/prompt-tester.md` Report: report behavior and likely cause, leave prompt text to the author.
-- `parallel-execution` "Gates" still says the next phase starts once a gate passes; the lead's own post-merge check was removed (the merger runs it via `/merge-prep`). Reread the section for contradictions.
+No more test rounds. Look at real runs of the released changes and note what the agents and models actually do:
+
+- Reviewer: does it reproduce findings before reporting them, and where do repro files land (`/tmp` or the work dir)? Are findings marked or grouped under Hypotheses?
+- Tech lead: which merges does it hand to a coder, which does it do itself, which model does it choose for a hard one, and does the brief carry what matters from both sides?
+- Explorer: does it `ls` the right tree first when spawned on a worktree?
+- Recheck `parallel-execution` "Gates": the lead's own post-merge check was removed (the merger runs it via `/merge-prep`); reread for contradictions.
+
+A miss on a cheaper model is not by itself a reason to add text; see below.
 
 ## Watch for
 
