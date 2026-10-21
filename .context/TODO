@@ -1,28 +1,30 @@
-# Prompt-dev watch-outs and open items
+# Prompt-dev checklist
 
-Left from the reviewer/explorer/merge session (released as meridian-dev-workflow v0.15.5, meridian-base v0.11.10).
+From the reviewer / explorer / merge session. Released as meridian-dev-workflow v0.15.5 and meridian-base v0.11.10. Three lists: what we were unsure about, what to keep in mind next session, what to mine for in other sessions.
 
-## Next: watch it in the wild
+## Unsure about (check against live runs)
 
-No more test rounds. Look at real runs of the released changes and note what the agents and models actually do:
+- **Reviewer verifies findings** (`review` skill, "Verified" bullet and Hypotheses section). In tests, findings grouped under a heading sometimes carried no stated check, and one low-severity hypothesis stayed under a severity heading. Do real reviews state the check per finding and use Hypotheses? Where do repro files land (`/tmp` or the work dir)?
+- **Reviewer can write** (`edit`/`write` denies removed). Does it leave the reviewed source and artifacts alone in practice, or only in the fixtures we built?
+- **Tech lead hands merges to `@coder --skills merge-prep`.** Opus self-merged easy cases and delegated a hard one, skimming PRs and briefing well, but passed no `-m`. Which merges does it keep? Does a hard merge ever get a stronger model? Is `merge-prep` actually attached every time (one lead run omitted it)?
+- **`parallel-execution` "Gates"** still says the next phase starts once a gate passes, but the lead's own post-merge check is gone (the merger runs it via `/merge-prep`). Reread for contradictions.
+- **Explorer "Start in the Right Place."** Verified `ls`-first on Claude/Sonnet only; Codex transcripts don't expose commands. Does it `ls` first on a worktree?
+- **Explorer permissions.** It was briefly `workspace-write`, then reverted to read-only. Callers asking it to write a file still hit "I could not create…" (seen in spawn p7417); the description now says it writes no files. Do callers stop asking?
 
-- Reviewer: does it reproduce findings before reporting them, and where do repro files land (`/tmp` or the work dir)? Are findings marked or grouped under Hypotheses?
-- Tech lead: which merges does it hand to a coder, which does it do itself, which model does it choose for a hard one, and does the brief carry what matters from both sides?
-- Explorer: does it `ls` the right tree first when spawned on a worktree?
-- Recheck `parallel-execution` "Gates": the lead's own post-merge check was removed (the merger runs it via `/merge-prep`); reread for contradictions.
-
-A miss on a cheaper model is not by itself a reason to add text; see below.
-
-## Watch for
+## Keep in mind next prompt-dev session
 
 - Check `/prompt-principles` before proposing a rule. Deletion, one source of truth and "change the model, not the agent" were already there; restating them is duplication.
-- Fix a miss's cause (the conflicting or misplaced line) before adding text. Keep wording model-agnostic; a model's quirks belong in its catalog `prompting` guidance.
-- Tester pitfalls seen: it proposes prompt text; Codex transcripts omit tool commands, so command order is unverifiable there; some Codex models are rejected by the account; Pi ignores `sandbox`, so a "read-only" baseline can still write. Launch tests from the project root with `--task-dir`, or the spawn fails with `pre_init_failed`.
-- Review skill: the tester found findings sometimes unmarked when grouped; one low-severity hypothesis stayed under a severity heading. Watch whether the Hypotheses section holds in real reviews before adding text.
-- Tech lead: Opus self-merges trivial merges and delegates hard ones, skimming the PRs and briefing well, but passes no `-m`. Model escalation sits in `/agent-staffing` Model Selection. Watch whether hard merges ever get a stronger model.
+- Fix the cause of a miss (the conflicting or misplaced line) before adding text. A miss on a cheaper model alone is not by itself a reason to add text. Keep wording model-agnostic; a model's quirks belong in its catalog `prompting` guidance, and model choice lives in `/agent-staffing`, not in agent bodies.
+- Tester pitfalls: it proposes prompt text; Codex transcripts omit tool commands; some Codex models are rejected by the account; Pi ignores `sandbox`, so a "read-only" baseline can still write. Launch spawns from the project root with `--task-dir`, or they fail with `pre_init_failed`.
+- Permissions are weaker than profiles suggest. `edit: deny` doesn't make an agent read-only (the explorer's `bash(cat *)` entry lets `cat > file` write). Only Codex `sandbox: read-only` and Cursor's read-only stop shell writes; Pi ignores `tools`, `sandbox` and `approval`; OpenCode applies `tools` for spawns only. Spawns start in the control root, and `workspace-write` on Codex covers the control root, work dir, KB and temp dir. A scratch-only write needs launch-layer isolation, not a prompt; worth a cross-cutting GitHub issue in meridian-cli. The permission matrix draft is in the `permission-docs` worktree (`docs/agent-profiles.md`).
 
-## Permissions are weaker than profiles suggest
+## Mine in other sessions
 
-- `edit: deny` does not make an agent read-only: the explorer's `bash(cat *)` allowlist entry lets `cat > file` write.
-- Only Codex `sandbox: read-only` (and Cursor's read-only) stop shell writes. Pi ignores `tools`, `sandbox` and `approval`. OpenCode applies `tools` for spawns only.
-- Spawns start in the control root, not the task directory; `workspace-write` on Codex covers the control root, work dir, KB and temp dir. There is no profile-only scratch-only write. This needs launch-layer isolation (read-only mount or wrapper), not a prompt. Worth a cross-cutting GitHub issue in meridian-cli; the permission matrix draft is in the `permission-docs` worktree (`docs/agent-profiles.md`).
+Use `@session-miner` or grep spawn reports.
+
+- Explorer reports that open with a write failure ("could not create", "Read-only file system"): how often, and which briefs asked for the file.
+- Reviewer reports: findings that turned out wrong when run, and findings with no stated check.
+- Tech-lead sessions that involve merges or rebases: who did them, the coder brief, the model, and whether the result broke later.
+- Spawns that failed with `pre_init_failed` or ran from the wrong directory.
+- Agents writing outside where they should (checkout, `$HOME`) on Pi or OpenCode.
+- User corrections about agent behavior ("it shouldn't…"): each is a candidate prompt or permission fix.
