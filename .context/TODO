@@ -1,0 +1,22 @@
+# Prompt-dev watch-outs and open items
+
+Left from the reviewer/explorer/merge session (released as meridian-dev-workflow v0.15.5, meridian-base v0.11.10).
+
+## Not done
+
+- Weigh a test miss by model. A miss on the shipping model, or one that recurs across models, points at the prompt; a miss on one weaker or cheaper model points at the model (model choice, or that model's own prompting guidance). Mark baselines that weren't isolated as inconclusive. Home: one paragraph in `skills/prompt-principles/resources/evaluation.md` (tester and prompt-dev both read it), plus one clause in `agents/prompt-tester.md` Report: report behavior and likely cause, leave prompt text to the author.
+- `parallel-execution` "Gates" still says the next phase starts once a gate passes; the lead's own post-merge check was removed (the merger runs it via `/merge-prep`). Reread the section for contradictions.
+
+## Watch for
+
+- Check `/prompt-principles` before proposing a rule. Deletion, one source of truth and "change the model, not the agent" were already there; restating them is duplication.
+- Fix a miss's cause (the conflicting or misplaced line) before adding text. Keep wording model-agnostic; a model's quirks belong in its catalog `prompting` guidance.
+- Tester pitfalls seen: it proposes prompt text; Codex transcripts omit tool commands, so command order is unverifiable there; some Codex models are rejected by the account; Pi ignores `sandbox`, so a "read-only" baseline can still write. Launch tests from the project root with `--task-dir`, or the spawn fails with `pre_init_failed`.
+- Review skill: the tester found findings sometimes unmarked when grouped; one low-severity hypothesis stayed under a severity heading. Watch whether the Hypotheses section holds in real reviews before adding text.
+- Tech lead: Opus self-merges trivial merges and delegates hard ones, skimming the PRs and briefing well, but passes no `-m`. Model escalation sits in `/agent-staffing` Model Selection. Watch whether hard merges ever get a stronger model.
+
+## Permissions are weaker than profiles suggest
+
+- `edit: deny` does not make an agent read-only: the explorer's `bash(cat *)` allowlist entry lets `cat > file` write.
+- Only Codex `sandbox: read-only` (and Cursor's read-only) stop shell writes. Pi ignores `tools`, `sandbox` and `approval`. OpenCode applies `tools` for spawns only.
+- Spawns start in the control root, not the task directory; `workspace-write` on Codex covers the control root, work dir, KB and temp dir. There is no profile-only scratch-only write. This needs launch-layer isolation (read-only mount or wrapper), not a prompt. Worth a cross-cutting GitHub issue in meridian-cli; the permission matrix draft is in the `permission-docs` worktree (`docs/agent-profiles.md`).
