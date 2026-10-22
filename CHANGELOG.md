@@ -4,6 +4,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+## [0.5.6] - 2026-10-22
+
 ### Changed
 - Prompt verification scales with uncertainty and consequences: small reversible edits use an author check and observation in normal work; substantial changes get independent review without a fixed review team.
 - Dedicated behavioral experiments require user-approved scope. prompt-tester runs focused cases, and evaluation guidance no longer requires a run or matrix for every edit.
