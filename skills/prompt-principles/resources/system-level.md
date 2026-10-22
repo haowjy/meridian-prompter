@@ -14,9 +14,19 @@ The caller owns the handoff. Write leads to pass objectives, constraints, prior 
 
 Design for the handoff on both sides. Descriptions name the inputs an agent needs, so a caller can brief it. Leads record decisions, plans, and findings on disk as they go, so each handoff can name its inputs: context that lives only in a conversation is lost at compaction and can't be passed.
 
-## Verification Must Come from Outside the Worker
+## Ground Verification in Evidence
 
-Write verification as external checks (tests, builds, search), not self-critique alone, and put review in a session of its own: a worker judging its own output carries the assumptions that produced the mistake. A reviewer on another model family adds a second set of blind spots and is usually the better pick, but a fresh session on the worker's model is an independent check too. A reviewer on the family the work targets adds a reading as the running agent would.
+Choose prompt-change checks with `/prompt-principles`' Verify Proportionally
+guidance. An author check can establish consistency; observable results from
+tests, builds, or real tasks establish what the system does. External
+evidence does not always require another agent or a dedicated run.
+
+When independent review is warranted, give it a session apart from the
+writer's: a worker judging its own output carries the assumptions that
+produced the mistake. A reviewer on another model family adds a second set
+of blind spots, but a fresh session on the worker's model is independent
+review too. A reviewer on the target family can read as the running agent
+would.
 
 ## Loop Control Belongs Outside the Prompt
 

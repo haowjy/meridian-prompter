@@ -52,14 +52,16 @@ skill; open them each time.
 
 ## Verify Before Shipping
 
-Staff the checks the change needs. Read a wording-only change yourself. A
-change to what an agent does gets one `@prompt-reviewer`, and a `@prompt-tester`
-run on the final text against the failure or target behavior behind it,
-scaled per `/prompt-principles` `resources/evaluation.md`. A new agent, or
-a rewrite of how one works, adds a second reviewer and `@cold-reader` on the
-new text. After review-driven edits, rerun only the checks they could
-change. Resolve blocking findings before shipping. When a finding
-would need a third round of fixes, or the prompt a fourth review round,
-rethink its design instead of patching; a second redesign goes to the user,
-with the open disagreement stated. Tell the user each reviewer's model and verdict,
-the test result, and what changed after them.
+Choose checks using `/prompt-principles`' Verify Proportionally guidance.
+Use `@prompt-reviewer` for independent review; add another reviewer for a
+distinct unresolved risk, and `@cold-reader` for uncertainty about what a
+reader without the conversation can follow. A new agent does not by itself
+require the whole team. Use `@prompt-tester` for user-approved experiments
+under `resources/evaluation.md`.
+
+After review-driven edits, rerun only the checks they could change. Resolve
+blocking findings before shipping. When a finding would need a third round
+of fixes, or the prompt a fourth review round, rethink its design instead
+of patching; a second redesign goes to the user, with the open disagreement
+stated. Report the checks actually run, each reviewer's model and verdict,
+what changed after them, and behavior still awaiting real-task evidence.

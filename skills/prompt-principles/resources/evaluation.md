@@ -1,10 +1,29 @@
 # Evaluating Prompt Changes
 
-A prompt change affects every future run, so test it like an experiment, at the scale of the change. A wording fix needs a careful read and one run. A new rule, a changed trigger, or a changed description needs the cases below.
+Use `/prompt-principles`' Verify Proportionally guidance to choose whether
+an experiment is warranted and obtain approval. This resource describes
+how to gather evidence; it does not require a run for every edit.
+
+## Observe Normal Work
+
+For a small change, name the behavior to watch on the next relevant task.
+Use that task's transcript when it becomes available; do not create extra
+work solely to satisfy a testing step. Record which prompt version ran,
+what the agent did, and whether the target behavior was exercised. Until
+then, report the behavior as untested. A successful run shows what happened
+on that task, not that the prompt caused it or will generalize.
+
+## Design an Approved Experiment
+
+Choose the smallest set of cases that can answer the approved question.
+Include a near-miss or another task when it distinguishes plausible failure
+modes; a wording change or new description does not trigger a fixed matrix.
+Keep candidate runs, reruns, additional cases, and judge launches within
+the approved scope. Obtain approval for a scope extension before proceeding.
 
 ## Start From What the Change Should Fix
 
-Change a prompt for a failure seen in a real run (what ran, what the agent did, what you expected) or for a behavior the work now needs, and state it before editing: it's what the test checks. A fix written from one bad session tends to fit that session; run it on other tasks before keeping it, or over many edits the prompt drifts.
+State the observed failure or needed behavior and what result would settle the question. A fix drawn from one session may fit only that session; include another task when the experiment needs to establish generalization.
 
 ## Compare Against a Baseline
 

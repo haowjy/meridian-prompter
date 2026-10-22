@@ -30,7 +30,7 @@ Write agents to make reversible decisions within what they were asked to do and 
 
 ## Write the Description Against Its Neighbors
 
-A caller chooses among agents by their descriptions. Beyond when to use it, what to pass, and what comes back, write the description in words that tell the agent apart from its neighbors; persona or "helps with X" give a caller nothing to route on. Check it with the routing test in `evaluation.md`.
+A caller chooses among agents by their descriptions. Beyond when to use it, what to pass, and what comes back, write the description in words that tell the agent apart from its neighbors; persona or "helps with X" give a caller nothing to route on. For an approved experiment on caller selection, use the routing test in `evaluation.md`.
 
 ## Write for Reuse Upstream and Downstream
 

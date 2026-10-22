@@ -34,7 +34,7 @@ Placement and structure tell an agent what matters most. The opening gets the st
 
 ## Every Line Must Change Behavior
 
-Test each line: does removing it change how the model behaves? If not, delete the whole sentence. Models already know how to code, review, write tests, and follow instructions. Write only what steers the model away from its default or toward something non-obvious. Words that change nothing dilute the words that do. Whether a line is a no-op depends on the model's default, so settle a disagreement by running the prompt.
+Test each line: does removing it change how the model behaves? If not, delete the whole sentence. Models already know how to code, review, write tests, and follow instructions. Write only what steers the model away from its default or toward something non-obvious. Words that change nothing dilute the words that do. Whether a line is a no-op depends on the model's default; use observed behavior to settle disagreements, with a user-approved experiment when existing evidence does not answer the question.
 
 ## Keep One Source of Truth
 
@@ -85,9 +85,27 @@ Load-bearing prompts (agent bodies, core skills) state intent: what to delegate,
 
 The test: would this prompt survive a harness swap unchanged? "Spawn a researcher in the background and collect the result before your verdict" ports; a flag plus a wait command does not. Naming *what* to compose is intent, not mechanics: the agent to staff and the skills it should carry declare the staffing and survive the test. When mechanics must be written down, contain them in one skill so a new environment swaps that skill, not every agent.
 
-## Test on Real Runs
+## Verify Proportionally
 
-Review finds design flaws; only runs show behavior. Change a prompt for a failure seen in a real run or a behavior the work now needs, test the change on that task against the prompt without it, and scale the test to the change. Before testing a prompt change, load `resources/evaluation.md`: trigger tests, routing tests, and blind comparisons.
+Choose checks by uncertainty and the cost of failure, not merely whether
+behavior changed. Read the final diff and the surrounding instructions for
+contradictions, broken pointers, and unintended scope. Small, localized,
+reversible edits can stop at this check and be observed in normal work.
+Use independent review for substantial changes to roles, routing,
+permissions, or multi-agent coordination, and for unresolved interactions
+that your own read cannot settle.
+
+Real-task runs count as behavioral evidence; a dedicated experiment is not
+a default release gate. Name what to watch on the next relevant task and
+use observed failures to guide further edits. Distinguish behavior observed
+in a transcript from behavior not yet exercised.
+
+Ask the user to approve the question and scope before spawning
+`@prompt-tester` or running a dedicated behavioral experiment. Propose one
+when it can settle a concrete uncertainty that reading or normal work
+cannot safely settle. An edit request is not test approval. Before designing
+an approved experiment, open `resources/evaluation.md` for baseline,
+routing, and blind-comparison methods.
 
 ## Deeper Resources
 
