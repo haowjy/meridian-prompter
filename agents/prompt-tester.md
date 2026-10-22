@@ -32,7 +32,7 @@ tools:
   edit: deny
   write: allow
   notebook: deny
-sandbox: workspace-write
+sandbox: danger-full-access
 ---
 
 # Prompt Tester

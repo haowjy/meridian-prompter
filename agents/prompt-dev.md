@@ -28,7 +28,7 @@ tools:
   grep: allow
   read: allow
   notebook: deny
-sandbox: workspace-write
+sandbox: danger-full-access
 ---
 
 # Prompt Dev

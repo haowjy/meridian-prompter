@@ -4,6 +4,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- prompt-dev and prompt-tester use `danger-full-access` so shell dependency fetches and validation can run without sandbox network or filesystem restrictions. Approval settings are unchanged.
+
 ## [0.5.4] - 2026-10-18
 
 ### Changed
