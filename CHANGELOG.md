@@ -4,6 +4,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- meridian-base dependency pinned to the current minor, `>=0.11.0, <0.12.0`. 0.5.7 left it unpinned.
+
 ## [0.5.7] - 2026-10-23
 
 ### Changed
