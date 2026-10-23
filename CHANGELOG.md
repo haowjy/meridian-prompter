@@ -4,6 +4,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+## [0.5.7] - 2026-10-23
+
 ### Changed
 - meridian-base dependency unpinned: resolves to its latest release.
 
