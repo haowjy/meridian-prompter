@@ -4,6 +4,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- Requires Meridian >=0.14.6. `agent-artifacts` and `skill-artifacts` now point to `prompt-authoring__meridian`, the agent and skill format guide Meridian ships, instead of carrying their own copy.
+
 ## [0.5.11] - 2026-10-25
 
 ### Changed
