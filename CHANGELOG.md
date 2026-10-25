@@ -6,6 +6,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ### Changed
 - Requires Meridian >=0.13.0 for platform-owned Meridian command permissions.
+- prompt-dev and prompt-tester drop scoped Meridian allows that were redundant beside plain Bash; prompt-dev also receives Meridian's spawn grant from its `subagents` declaration.
 
 ## [0.5.8] - 2026-10-23
 

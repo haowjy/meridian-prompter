@@ -21,7 +21,6 @@ skills:
   available: [agent-artifacts, skill-artifacts, session-mining]
 tools:
   bash: allow
-  'bash(meridian spawn *)': allow
   write: allow
   edit: allow
   glob: allow

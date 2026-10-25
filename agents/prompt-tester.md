@@ -22,8 +22,6 @@ skills:
   load: [prompt-principles]
 tools:
   bash: allow
-  bash(meridian spawn *): allow
-  'bash(meridian session *)': allow
   read: allow
   glob: allow
   grep: allow
