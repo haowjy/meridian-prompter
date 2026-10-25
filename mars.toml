@@ -14,8 +14,6 @@ skills = [
     "grill-with-evidence",
     "intent-modeling",
     "llm-writing",
-    "notify",
-    "session-mining",
 ]
 
 [settings]
