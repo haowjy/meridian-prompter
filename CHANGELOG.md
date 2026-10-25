@@ -4,6 +4,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- Requires Meridian >=0.13.0 for platform-owned Meridian command permissions.
+
 ## [0.5.8] - 2026-10-23
 
 ### Changed
