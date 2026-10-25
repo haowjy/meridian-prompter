@@ -4,6 +4,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+## [0.5.10] - 2026-10-25
+
 ### Changed
 - Requires Meridian >=0.14.0 and Mars >=0.18.0 for portable network policies.
 - `@web-prompt-researcher` uses a workspace sandbox so Codex can provide the declared shell network. Its edit and write tools stay denied, but its shell can now write inside the sandbox's writable folders; destructive git commands are denied on Claude (Codex cannot express scoped shell rules).
