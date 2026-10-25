@@ -7,7 +7,7 @@ model-invocable: true
 
 # Prompt Principles
 
-Use `/llm-writing` alongside this skill. `/agent-artifacts` and `/skill-artifacts` cover Meridian's formats and runtime.
+Use `/llm-writing` alongside this skill. `/agent-artifacts` and `/skill-artifacts` cover the package formats and runtime.
 
 ## Write for the Reader of Each Layer
 

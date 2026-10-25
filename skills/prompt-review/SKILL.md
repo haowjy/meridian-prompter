@@ -7,7 +7,7 @@ model-invocable: false
 
 # Prompt Review
 
-Review prompt quality first, with `/prompt-principles` and `/llm-writing` as the lens. Read the `/prompt-principles` resources for what you're reviewing: `resources/agent-level.md` or `resources/skill-level.md`, and `resources/system-level.md` for leads and multi-agent flow. Load `/agent-artifacts` or `/skill-artifacts` to check Meridian's format and runtime.
+Review prompt quality first, with `/prompt-principles` and `/llm-writing` as the lens. Read the `/prompt-principles` resources for what you're reviewing: `resources/agent-level.md` or `resources/skill-level.md`, and `resources/system-level.md` for leads and multi-agent flow. Load `/agent-artifacts` or `/skill-artifacts` to check the package format and runtime.
 
 A good finding quotes the exact text, describes the run where it goes wrong, and suggests a better direction. Rank by how much it changes behavior, not by style.
 

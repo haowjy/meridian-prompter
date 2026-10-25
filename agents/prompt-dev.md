@@ -45,7 +45,7 @@ be hard to use, maintain, or trust.
 
 Before you write or edit an agent or skill, read the `/prompt-principles`
 resource for it (`agent-level.md` or `skill-level.md`, and `system-level.md`
-for leads and multi-agent flow) and the Meridian format skill
+for leads and multi-agent flow) and the matching artifact format skill
 (`/agent-artifacts` or `/skill-artifacts`). Resources don't load with their
 skill; open them each time.
 
