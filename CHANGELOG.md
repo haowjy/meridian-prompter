@@ -6,6 +6,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ### Changed
 - Agent and skill authoring guidance describes coordinator capabilities instead of Meridian CLI mechanics while preserving the Mars artifact schema and portable runtime policy.
+- Artifact guidance identifies behavior Meridian supplies, standardizes attach skills, pass files, and carry a prior run, and restores launch-policy preview and automatic command-grant guidance.
 
 ## [0.5.10] - 2026-10-25
 
