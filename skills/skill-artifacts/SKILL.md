@@ -18,15 +18,15 @@ A skill is a directory under `skills/` with a `SKILL.md` and optional `resources
 ## Loading and Invocation
 
 - **`load`** in an agent profile puts the skill's full text in that agent's system prompt every run, on every harness, whatever its `model-invocable`. A skill with `model-invocable: false` under one agent's `load` is how you give that agent a skill no model finds or loads by itself.
-- **`available`** in an agent profile lists the skill for the agent to load itself. Meridian lists every model-invocable skill with its description, which is what the agent reads to decide; it also calls attention to that agent's available skills by name and type. Other runtimes may differ.
+- **`available`** in an agent profile lists the skill for the agent to load itself. The harness lists every model-invocable skill with its description, which is what the agent reads to decide; Meridian also calls attention to that agent's available skills by name and type.
 - **Attach skills** at delegation time to deliver them the same way `load` does, whatever the agent's own lists say. A caller learns what it can attach from the agent's description.
 - **`model-invocable`** (default `true`) puts the skill in the harness's skill list, where any model can find and load it by itself. `false` takes it off that list: `load` still delivers it in full, and callers can still attach the skill, but an `available` listing of it is a name the agent can't load. Every model-invocable skill costs description tokens on every turn, so keep that pool small.
 - **`user-invocable`** (default `true`) lets the human trigger the skill with `/name`.
 
 Meridian delivers a loaded skill headed `# Skill: /<name>` with a line saying
 its text is already loaded, so a body can tell the agent to follow `/<name>`
-even when the harness's skill list omits it. Other runtimes may differ.
+even when the harness's skill list omits it.
 
 ## Types
 
-Set `type:` to declare the skill's role: `principle` for always-loaded thinking guidance, `guardrail` for always-loaded safety boundaries, `mode-shift` for on-demand shifts in activity, `checkpoint` for phase gates, `reference` for operational how-to. Meridian groups listed skills by type and prints the type's one-line header above each group of loaded skills (`principle`: "Override other guidance when loaded."; `reference` gets none), so pick the type whose header holds for the skill. Other runtimes may differ.
+Set `type:` to declare the skill's role: `principle` for always-loaded thinking guidance, `guardrail` for always-loaded safety boundaries, `mode-shift` for on-demand shifts in activity, `checkpoint` for phase gates, `reference` for operational how-to. Meridian groups listed skills by type and prints the type's one-line header above each group of loaded skills (`principle`: "Override other guidance when loaded."; `reference` gets none), so pick the type whose header holds for the skill.

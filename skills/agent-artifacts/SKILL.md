@@ -65,7 +65,7 @@ Web search and fetch through `web: allow` do not need shell network.
 
 Meridian automatically grants its read-only and lifecycle commands under Bash
 allowlists, and grants delegation commands when a profile declares `subagents`.
-Other runtimes may differ. Preview what a profile actually gets with the
-runtime's launch dry-run before trusting the frontmatter. When a delegated agent
-lacks access, check the runtime's sandbox and network floor before changing the
-profile; project configuration and hooks can restrict a run further.
+Preview what a profile actually gets with the runtime's launch dry-run before
+trusting the frontmatter. When a delegated agent lacks access, check the
+runtime's sandbox and network floor before changing the profile; project
+configuration and hooks can restrict a run further.

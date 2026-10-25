@@ -5,6 +5,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 ## [Unreleased]
 
 ### Changed
+- Skill guidance distinguishes the harness's model-invocable inventory from
+  Meridian's emphasis on profile-available skills, with one shared portability
+  caveat for Meridian-supplied behavior.
 - Prompt profiles now rely on runtime-supplied capabilities to notify the human
   and read past sessions instead of naming package skills.
 - Agent and skill authoring guidance describes coordinator capabilities instead of Meridian CLI mechanics while preserving the Mars artifact schema and portable runtime policy.
