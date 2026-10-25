@@ -17,8 +17,8 @@ model-policies:
     override: {effort: high}
 subagents: [prompt-reviewer, prompt-tester, cold-reader, python-tool-writer, web-prompt-researcher, explorer, session-miner]
 skills:
-  load: [prompt-principles, intent-modeling, llm-writing, grill-with-evidence, explore-and-engage, notify]
-  available: [agent-artifacts, skill-artifacts, session-mining]
+  load: [prompt-principles, intent-modeling, llm-writing, grill-with-evidence, explore-and-engage]
+  available: [agent-artifacts, skill-artifacts]
 tools:
   bash: allow
   write: allow
