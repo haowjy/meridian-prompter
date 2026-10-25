@@ -5,6 +5,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 ## [Unreleased]
 
 ### Changed
+- Requires Meridian >=0.14.5 and accepts meridian-base 0.12, which moved Meridian's own skills into Meridian.
 - Skill guidance distinguishes the harness's model-invocable inventory from
   Meridian's emphasis on profile-available skills, with one shared portability
   caveat for Meridian-supplied behavior.
