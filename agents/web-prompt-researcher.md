@@ -23,7 +23,8 @@ tools:
   edit: deny
   write: deny
   notebook: deny
-sandbox: read-only
+sandbox: workspace-write
+network: allow
 ---
 
 # Web Prompt Researcher

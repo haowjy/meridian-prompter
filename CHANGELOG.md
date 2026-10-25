@@ -6,6 +6,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ### Changed
 - Requires Meridian >=0.14.0 and Mars >=0.18.0 for portable network policies.
+- `@web-prompt-researcher` uses a workspace sandbox so Codex can provide the declared shell network; edit and write tools remain denied.
+- `agent-artifacts` documents portable sandbox and network policy, host lists, harness limits, and Meridian's automatic command grants.
 
 ## [0.5.9] - 2026-10-25
 
