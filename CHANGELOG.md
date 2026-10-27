@@ -5,7 +5,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 ## [Unreleased]
 
 ### Changed
-- Agent and skill definitions use Mars schema 1; requires Mars >=0.20.0 (Meridian with Mars 0.20).
+- Agent and skill definitions use Mars schema 1; requires Mars >=0.20.0 and Meridian >=0.15.0 (meridian-cli on Mars 0.20).
 
 ## [0.5.12] - 2026-10-25
 
