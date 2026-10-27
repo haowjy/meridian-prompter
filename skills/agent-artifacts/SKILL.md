@@ -1,8 +1,9 @@
 ---
 name: agent-artifacts
-type: reference
 description: "Load when writing or reviewing Meridian agent .md files: points to the format guide Meridian ships."
 model-invocable: true
+metadata:
+  type: reference
 ---
 
 # Agent Artifacts

@@ -1,8 +1,9 @@
 ---
 name: skill-artifacts
-type: reference
 description: "Load when writing or reviewing Meridian skills: points to the format guide Meridian ships."
 model-invocable: true
+metadata:
+  type: reference
 ---
 
 # Skill Artifacts

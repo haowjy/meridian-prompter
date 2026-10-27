@@ -1,8 +1,9 @@
 ---
 name: prompt-review
-type: reference
 description: "Load when an agent, skill, or prompt needs strict review, to find its failure modes and rank them by severity."
 model-invocable: false
+metadata:
+  type: reference
 ---
 
 # Prompt Review

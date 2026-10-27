@@ -1,8 +1,9 @@
 ---
 name: prompt-principles
-type: principle
 description: "Load when writing or reviewing anything an agent reads: agent prompts, skills, AGENTS.md. The principles that make it steer behavior reliably."
 model-invocable: true
+metadata:
+  type: principle
 ---
 
 # Prompt Principles
