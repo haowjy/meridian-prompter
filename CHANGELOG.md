@@ -4,6 +4,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+## [0.6.1] - 2026-10-27
+
 ### Changed
 - Agent-level principles: an agent is a thin wrapper (a model, permissions, and the skills it loads), and its body holds only the job, boundaries, way of engaging, and what it returns. Method goes in skills because some harnesses' plugins carry skills but not agents.
 
