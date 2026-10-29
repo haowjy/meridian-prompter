@@ -4,6 +4,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- Allows meridian-base 0.14.x. This package takes skills from it, and 0.14.0 changed only hooks.
+
 ## [0.6.1] - 2026-10-27
 
 ### Changed

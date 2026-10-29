@@ -8,7 +8,7 @@ schema = 1
 
 [dependencies.meridian-base]
 url = "https://github.com/haowjy/meridian-base"
-version = ">=0.13.0, <0.14.0"
+version = ">=0.13.0, <0.15.0"
 skills = [
     "explore-and-engage",
     "grill",
