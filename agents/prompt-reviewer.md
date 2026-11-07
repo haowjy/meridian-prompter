@@ -24,14 +24,7 @@ skills:
   load: [prompt-principles, prompt-review, llm-writing]
   available: [agent-artifacts, skill-artifacts]
 tools:
-  bash(git diff *): allow
-  bash(git log *): allow
-  bash(git show *): allow
-  'bash(rg *)': allow
-  'bash(find *)': allow
-  'bash(sed *)': allow
-  'bash(ls *)': allow
-  'bash(cat *)': allow
+  bash: allow
   read: allow
   glob: allow
   grep: allow

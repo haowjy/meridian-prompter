@@ -4,6 +4,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- `prompt-reviewer` allows the shell outright (`bash: allow`) instead of listing scoped commands. Meridian 0.21 reads scoped allows as grants that restrict nothing, so the list no longer limited it.
+
 ## [0.6.2] - 2026-10-29
 
 ### Changed
