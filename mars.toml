@@ -12,7 +12,6 @@ version = ">=0.13.0, <0.15.0"
 skills = [
     "explore-and-engage",
     "grill",
-    "grill-with-evidence",
     "intent-modeling",
     "llm-writing",
 ]

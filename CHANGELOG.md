@@ -4,6 +4,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- `/prompt-principles`: written for strong models that follow text as written. Name what to avoid exactly; give absolute rules their scope and reason; name the actions an approval rule covers; say who owns the work; ask for subagents only where the work needs them. Shorter overall.
+- `prompt-dev`: the usual fix is a deletion. It reads the final diff itself and has one `@prompt-reviewer` review changes to roles, routing, permissions or multi-agent flow, then judges each finding.
+- `web-prompt-researcher` starts from the vendor's prompting guide for the model in question.
+- `prompt-reviewer` runs on Opus at medium effort. `/prompt-review` reports likely failures worth their fix, counts deletions as findings, and lists rare-case caveats in one line each.
+- `prompt-dev` loads `/prompt-principles`, `/intent-modeling`, `/llm-writing`, `/explore-and-engage`; `/grill` is installed.
+
 ## [0.6.3] - 2026-11-07
 
 ### Changed

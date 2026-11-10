@@ -23,6 +23,10 @@
 |---------|--------|
 | XML tags and clear structure are recommended over unstructured prompts | Anthropic prompt engineering docs |
 | "If in doubt, use [tool]" causes overtriggering | Anthropic Claude prompting guidance |
+| Fable 5.2 follows style, approval and caution rules as written; stale notes and unscoped "never" rules made it hold back routine work; an exception written into the rule worked where a separate permission line didn't | Anthropic, "Prompting Claude Fable 5.2" (2026) |
+| Fable 5.2: a sentence saying the code is the agent's own raised merging of repeated code from under a tenth to about half of tries, at about 1.5x output tokens; standing delegation lines raise cost | Anthropic, "Prompting Claude Fable 5.2" (2026) |
+| Opus 5.5 avoids named patterns (frontend defaults, specific kinds of early stop); a vague "avoid a generic look" swaps one default for another | Anthropic, "Prompting Claude Opus 5.5" (2026) |
+| Aggressive language ("CRITICAL: You MUST") makes Opus 4.5 and later overtrigger; verification instructions cause over-verification on Opus 5 | Anthropic, "Prompting best practices" (2026) |
 
 ## Practitioner Collections
 

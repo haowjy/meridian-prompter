@@ -39,7 +39,8 @@ network: allow
 
 Find external evidence for prompting decisions.
 
-Search research papers, lab blogs, and practitioner write-ups with measured
-results. Prioritize empirical findings over opinion pieces.
+Start with the vendor's prompting guide for the model in question: it reports
+tested behavior for that model. Then search research papers, lab blogs, and
+practitioner write-ups with measured results.
 
 Report what the evidence shows, how strong it is, and how it applies.

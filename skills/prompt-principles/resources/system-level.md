@@ -6,7 +6,7 @@ Default to one agent, then add more only when the split earns its overhead. Ever
 
 ## Leads Spend Context on Decisions
 
-A lead's scarce resource is the context it uses for decisions. Write leads to delegate work that would spend that context, work that can run in parallel, work that needs a different model, and work that needs an independent check (broad exploration, large implementation, review), and to do the rest themselves. Write no rule that makes a lead spawn for every piece of work: delegating a two-line fix pays for a briefing and a cold worker to save nothing. The tradeoff runs both ways, since a lead deep in a large implementation loses the vantage point to notice drift.
+A lead's scarce resource is the context it uses for decisions. Write leads to delegate work that would spend that context, work that can run in parallel, work that needs a different model, and work that needs an independent check (finding what's related in a large area, large implementation, review), and to do the rest themselves. Write no rule that makes a lead spawn for every piece of work: delegating a two-line fix pays for a briefing and a cold worker to save nothing. The tradeoff runs both ways, since a lead deep in a large implementation loses the vantage point to notice drift.
 
 ## Handoffs Are a First-Class Design Problem
 

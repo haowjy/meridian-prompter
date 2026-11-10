@@ -2,13 +2,13 @@
 name: prompt-reviewer
 description: "Use when an agent or skill draft needs adversarial review before shipping. Pass the draft paths and what it is meant to do; returns ranked findings. Read-only."
 mode: subagent
-model: sol
-effort: high
+model: opus
+effort: medium
 model-policies:
   - match: {alias: sol}
-    override: {effort: xhigh}
-  - match: {alias: opus}
     override: {effort: high}
+  - match: {alias: opus}
+    override: {effort: medium}
   - match: {alias: astra}
     override: {effort: high}
   - match: {alias: grok}
