@@ -4,6 +4,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+## [0.6.6] - 2026-11-16
+
 ### Changed
 - Requires meridian-base 0.16 (choices recorded as tradeoffs, no invariants; `/goal-writing` and `/reflect` removed).
 
