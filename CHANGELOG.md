@@ -4,6 +4,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- Requires meridian-base 0.16 (choices recorded as tradeoffs, no invariants; `/goal-writing` and `/reflect` removed).
+
+### Fixed
+- `prompt-tester` can write again under Mars 0.30: dropped `edit: deny`, which beat `write: allow`. Requires Mars 0.30.
+
 ## [0.6.5] - 2026-11-11
 
 ### Changed

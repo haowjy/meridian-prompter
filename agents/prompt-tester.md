@@ -26,7 +26,6 @@ tools:
   glob: allow
   grep: allow
   agent: deny
-  edit: deny
   write: allow
   notebook: deny
 sandbox: danger-full-access

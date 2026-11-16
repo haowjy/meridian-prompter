@@ -2,13 +2,13 @@
 name = "meridian-prompter"
 version = "0.6.5"
 description = "Workflow for creating and improving LLM agents and skills from first principles — research-backed design principles, writers, reviewers, and testers."
-requires-mars = ">=0.20.0"
+requires-mars = ">=0.30.0"
 requires-meridian = ">=0.15.0"
 schema = 1
 
 [dependencies.meridian-base]
 url = "https://github.com/haowjy/meridian-base"
-version = ">=0.15.1, <0.16.0"
+version = ">=0.16.0, <0.17.0"
 skills = [
     "explore-and-engage",
     "grill",
