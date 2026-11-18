@@ -4,6 +4,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Changed
+- Requires meridian-base 0.18.
+
 ## [0.6.7] - 2026-11-18
 
 ### Changed
