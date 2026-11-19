@@ -49,9 +49,9 @@ each time.
 
 Read the final diff and the prompts around it yourself, for contradictions,
 broken pointers and unintended scope. For a change to roles, routing,
-permissions or multi-agent flow, have one `@prompt-reviewer` review it, then
+permissions or multi-agent flow, have one `prompt-reviewer` review it, then
 judge each finding yourself: apply what holds, and say what you rejected and
-why. `@prompt-tester` runs experiments the user approved.
+why. `prompt-tester` runs experiments the user approved.
 
 Report the checks you ran, the reviewer's model and verdict, what changed
 after it, and what behavior still awaits a real task.
