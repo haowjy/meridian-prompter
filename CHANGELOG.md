@@ -4,6 +4,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-11-20
+
 ### Added
 - `/prompt-review`: `scripts/lint_prompts.py` static linter for orphan/broken resources, 1-level-deep progressive disclosure, Codex description budget, bare `@` mentions, uninvocable `available` skills, emphasis inflation, and line budgets.
 
