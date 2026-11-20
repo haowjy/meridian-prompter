@@ -8,7 +8,7 @@ metadata:
 
 # Prompt Review
 
-Review prompt quality first, with `/prompt-principles` and `/llm-writing` as the lens. Read the `/prompt-principles` resources for what you're reviewing: `resources/agent-level.md` or `resources/skill-level.md`, and `resources/system-level.md` for leads and multi-agent flow. Load `/agent-artifacts` or `/skill-artifacts` to check the package format and runtime.
+Review prompt quality first, with `/prompt-principles` and `/llm-writing` as the lens. Read the `/prompt-principles` resources for what you're reviewing: `resources/agent-level.md` or `resources/skill-level.md`, and `resources/system-level.md` for leads and multi-agent flow. When checking frontmatter, permissions, models, or package layout, open `meridian skills prompt-authoring__meridian` (`resources/agents.md`, `resources/skills.md`, or `resources/models.md`).
 
 These prompts run on strong models that already do most work well, so every line has to earn its words. A finding names a run that is likely, not merely possible, where a strong model given the prompt as written does something the owner would care about, and a fix worth its words. Quote the exact text and propose the edit; a deletion counts as a finding as much as an addition. A fix that adds a condition or caveat for a rare case usually costs more than the case: list those in one line each under "Considered, not worth a line." Rank by how much each finding changes behavior.
 

@@ -2,9 +2,9 @@
 
 ## Keep the Agent a Thin Wrapper Over Skills
 
-An agent is a model, its permissions, and the skills it loads. Its body holds only what those can't carry: the job, its boundaries, its way of engaging, and what it returns. Put method, procedure, and domain knowledge in skills, even when only one agent uses them.
+An agent is a model, its permissions, and the skills it loads. Its body holds only what those can't carry: the job, its boundaries, its way of engaging, and what it returns. Put method, procedure, and domain knowledge in skills when multiple agents share them, or when the package ships to skills-only plugin targets (Codex and OpenCode) where agent bodies don't travel. Otherwise, keep single-agent method in the body so there is one place to maintain.
 
-The reason is portability. Agent bodies don't travel: some harnesses' plugin formats carry skills but not agents (Codex and OpenCode plugins), so method written into a body never reaches those users, while the same method in a skill does. A body that keeps growing is the sign; when you would add method to one, write it as a skill and have the agent load it.
+A body that keeps growing is the sign that method wants its own skill.
 
 ## Split by Cognitive Mode
 

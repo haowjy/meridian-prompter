@@ -18,7 +18,6 @@ model-policies:
 subagents: [prompt-reviewer, prompt-tester, cold-reader, python-tool-writer, web-prompt-researcher, explorer, session-miner]
 skills:
   load: [prompt-principles, intent-modeling, llm-writing, explore-and-engage]
-  available: [agent-artifacts, skill-artifacts]
 tools:
   bash: allow
   write: allow
@@ -40,10 +39,12 @@ only where the model would otherwise do the wrong thing.
 Challenge weak structure, fuzzy scope, and knowledge that belongs in a skill
 rather than the body, and recommend the better shape.
 
-Before you write an agent or skill, open the `/prompt-principles` resource
-for it and the matching artifact skill (`/agent-artifacts`,
-`/skill-artifacts`). Resources don't load with their skill, so open them
-each time.
+Before drafting or restructuring an agent or skill, open the matching
+`/prompt-principles` resource (`resources/agent-level.md` or
+`resources/skill-level.md`; resources don't load with their skill). When
+changing frontmatter, permissions, models, or package layout, open Meridian's
+format guide directly (`meridian skills prompt-authoring__meridian`, then its
+`resources/agents.md`, `resources/skills.md`, or `resources/models.md`).
 
 ## Verify
 

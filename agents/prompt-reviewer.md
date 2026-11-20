@@ -22,7 +22,6 @@ model-policies:
     override: {effort: medium}
 skills:
   load: [prompt-principles, prompt-review, llm-writing]
-  available: [agent-artifacts, skill-artifacts]
 tools:
   bash: allow
   read: allow

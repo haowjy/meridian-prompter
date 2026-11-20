@@ -8,7 +8,7 @@ metadata:
 
 # Prompt Principles
 
-Use `/llm-writing` alongside this skill. `/agent-artifacts` and `/skill-artifacts` cover the package formats and runtime.
+Use `/llm-writing` alongside this skill. For Meridian package formats, frontmatter, and runtime mechanics, open `meridian skills prompt-authoring__meridian` directly (and its `resources/agents.md`, `resources/skills.md`, or `resources/models.md`).
 
 These principles assume a strong model: one that already codes, reviews, plans, interviews and tests well, and follows what it reads closely and as written. Most of the work is deleting what such a model doesn't need, and saying the rest so it can't be misread.
 
@@ -33,11 +33,11 @@ Material behind a pointer is reached only when the pointer's wording fires, so t
 
 ## Place What Matters First
 
-The opening gets the strongest attention and the close the second-strongest, so put purpose and the main constraint first and the reminder that matters most last; an instruction buried in the middle loses to local wording. Separate kinds of information with headers, XML tags and short sections. Structure adds weight where ALL CAPS, repeated "must" and "CRITICAL" don't: on current models that emphasis makes an instruction overtrigger.
+In long contexts, the opening gets the strongest attention and the close the second-strongest, so put purpose and the main constraint first and the reminder that matters most last. On short files, clear triggers and the absence of competing rules do more work than section order alone. Separate kinds of information with headers, XML tags and short sections. Structure adds weight where ALL CAPS, repeated "must" and "CRITICAL" don't: on current models that emphasis makes an instruction overtrigger.
 
 ## Every Line Must Change Behavior
 
-Test each line: does removing it change what the model does? If not, delete the whole sentence. Write only what steers the model away from its default or toward something non-obvious; words that change nothing dilute the words that do. Whether a line is a no-op depends on the model's default, so settle disagreements with observed behavior.
+Test each line: does removing it change what the model does? If not, delete the whole sentence. Write only what steers the model away from its default or toward something non-obvious; words that change nothing dilute the words that do. Whether a line is a no-op depends on the model's default — judge deletions against the weakest model in the agent's `model-policies` (not only the strongest) and settle disagreements with observed behavior.
 
 Fixes accrete into lines that patch holes earlier lines made: an exemption for cases a broad rule got wrong, a rule that counters another, a pointer to a copy that drifted. After a round of changes, fix the line that made the hole, and the patch goes with it.
 
@@ -65,7 +65,7 @@ A completion criterion tells the agent when a step is done. Make it clear: a vag
 
 ## State Instructions Flat
 
-The model must first decide whether a condition fired, and it misses conditional constraints far more often than plain ones. A fallback plants its case ("if in doubt, use X" overtriggers X). State the default as a directive. Keep a condition only when the instruction is wrong on the other side and both sides occur, and make its trigger checkable; "when you think it's done" gets guessed, usually conveniently. If the thorough path is right, make it the only path: a weaker option offered beside it becomes the default. Before cutting a condition, read the flat version as an instruction that always fires.
+The model must first decide whether a condition fired, and it misses conditional constraints far more often than plain ones. A fallback plants its case ("if in doubt, use X" overtriggers X). State behavior directives flat. Keep a condition for routing triggers to skills or resources (which must stay conditional so agents don't open every resource unconditionally) and when the instruction is wrong on the other side and both sides occur; make every trigger checkable ("when you think it's done" gets guessed, usually conveniently). If the thorough path is right, make it the only path: a weaker option offered beside it becomes the default. Before cutting a condition, read the flat version as an instruction that always fires.
 
 ## Use Leading Words
 

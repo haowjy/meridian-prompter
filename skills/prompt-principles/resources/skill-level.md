@@ -4,9 +4,9 @@
 
 Write the method, criteria, and vocabulary for the work the skill covers, as instructions that hold in any agent that loads it. Leave the agent's job and delegation to the agent's body: a skill that assumes its caller ("the orchestrator", "your lead") or restates a role breaks in every other agent that loads it. A skill can define what its method produces, such as a review's findings and verdict; the agent's body owns its overall report.
 
-## Extract for Reuse, Not for Tidiness
+## Extract for Reuse or Portability, Not for Tidiness
 
-Move something into a skill when multiple agents need the same knowledge or method. If only one agent needs it, keep it in the body; one place to maintain. The test is whether multiple agents would get lighter and clearer if the content moved out.
+Move something into a skill when multiple agents need the same knowledge or method, or when the package ships to skills-only plugin targets (Codex, OpenCode) where agent bodies don't travel. Otherwise, if only one agent needs it, keep it in the body; one place to maintain.
 
 ## Choose How It Loads
 
@@ -17,7 +17,7 @@ Each way a skill reaches an agent spends a different budget:
 - **Attached by a caller** costs nothing until a caller that knows the work needs it attaches it.
 - **Invoked only by a human** costs no context and spends the human's memory instead: they have to know it exists.
 
-Pick the cheapest path that still reaches the agent when the work needs it. `/skill-artifacts` maps each path to its fields.
+Pick the cheapest path that still reaches the agent when the work needs it. Meridian's `prompt-authoring__meridian` (`resources/skills.md`) maps each path to its fields.
 
 ## Disclose Progressively
 

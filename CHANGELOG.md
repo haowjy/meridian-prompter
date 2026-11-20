@@ -4,6 +4,16 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+### Added
+- `/prompt-review`: `scripts/lint_prompts.py` static linter for orphan/broken resources, 1-level-deep progressive disclosure, Codex description budget, bare `@` mentions, uninvocable `available` skills, emphasis inflation, and line budgets.
+
+### Changed
+- `/prompt-principles`: reconcile single-agent skill extraction between `resources/agent-level.md` and `resources/skill-level.md` (extract when shared or targeting skills-only plugins; otherwise keep in the body); calibrate `Place What Matters First`, multi-model deletion testing in `Every Line Must Change Behavior`, and routing-trigger conditions in `State Instructions Flat`.
+- `prompt-dev`, `prompt-reviewer`, `/prompt-review`, `/prompt-principles`: point directly to `meridian skills prompt-authoring__meridian` when checking format/runtime mechanics instead of routing through `/agent-artifacts` and `/skill-artifacts`.
+
+### Removed
+- `/agent-artifacts` and `/skill-artifacts`: routing-only stubs replaced by direct pointers to `prompt-authoring__meridian`.
+
 ## [0.6.9] - 2026-11-19
 
 ### Changed
