@@ -4,6 +4,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+## [0.7.1] - 2026-11-21
+
 ### Fixed
 - `scripts/lint_prompts.py`: resolve a `resources/` reference to the skill named before it in the sentence, checked against the files on disk, so "Load `/x`; its `resources/y.md`" no longer reads as a missing local resource. Drop the multi-hop warning: a resource reachable only through another resource is already an orphan, and cross-links between resources `SKILL.md` links directly are fine.
 
