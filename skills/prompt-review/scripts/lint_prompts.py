@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Static linter for agent prompts, skills, and AGENTS.md files.
 
-Enforces deterministic prompt-engineering invariants (1-level-deep progressive
-disclosure, orphan/broken resources, Codex description budget, bare @ mentions,
+Enforces deterministic prompt-engineering invariants (orphan/broken resources,
+which keep disclosure one level deep, Codex description budget, bare @ mentions,
 uninvocable `available` skills, emphasis inflation, and line budgets) using
 only the Python standard library.
 """
@@ -37,8 +37,9 @@ MAX_AGENTS_MD_LINES = 200
 MAX_SKILL_MD_LINES = 500
 
 RESOURCE_REF_RE = re.compile(r"resources/([A-Za-z0-9._/-]+\.md)")
-CROSS_SKILL_PREFIX_RE = re.compile(
-    r"(?:`/[a-z0-9_-]+`|`?[a-z0-9_-]+__meridian`?|\bmeridian skills\b)"
+# A skill named in prose: `/name`, `name__meridian`, or `meridian skills name`.
+SKILL_MENTION_RE = re.compile(
+    r"`/([a-z0-9_-]+)`|`?([a-z0-9_-]+)__meridian`?|\bmeridian skills ([a-z0-9_-]+)"
 )
 # Match bare @word outside emails/code (preceded by start/space/paren/bracket)
 BARE_AT_RE = re.compile(r"(?:^|[\s(\[])@([A-Za-z][A-Za-z0-9._/-]{1,})")
@@ -46,17 +47,22 @@ EMPHASIS_RE = re.compile(r"\b(CRITICAL:|IMPORTANT:|YOU MUST\b|NEVER EVER\b)")
 WEAK_HEDGE_RE = re.compile(r"\bif in doubt\b", re.IGNORECASE)
 
 
-def find_local_resource_refs(text: str) -> set[str]:
-    """Find resources/*.md references belonging to the current skill, skipping cross-skill refs."""
+def find_resource_refs(text: str) -> list[tuple[str | None, str]]:
+    """Each resources/*.md mention, with the last skill named before it in its sentence.
+
+    Which skill a mention belongs to can't be read from prose alone ("Load `/x`;
+    its `resources/y.md`" vs "Load `/x` for A; open `resources/y.md` for B"), so
+    the caller resolves it against the files on disk.
+    """
     collapsed = re.sub(r"\s+", " ", text)
-    refs: set[str] = set()
+    refs: list[tuple[str | None, str]] = []
     for m in RESOURCE_REF_RE.finditer(collapsed):
-        # Split at sentence boundaries (". ", "; ") or ", then " so file extensions like ".md" don't split
         window = collapsed[max(0, m.start() - 160) : m.start()]
-        clause = re.split(r"[.;](?:\s|$)|,\s+then\b", window)[-1]
-        if CROSS_SKILL_PREFIX_RE.search(clause):
-            continue
-        refs.add(m.group(1))
+        # Split at sentence ends only; ".md" is not followed by a space.
+        sentence = re.split(r"\.(?:\s|$)", window)[-1]
+        mentions = SKILL_MENTION_RE.findall(sentence)
+        named = next((g for g in mentions[-1] if g), None) if mentions else None
+        refs.append((named, m.group(1)))
     return refs
 
 
@@ -160,7 +166,12 @@ def lint_package(root: Path) -> tuple[list[Finding], dict[str, int]]:
 
     skill_meta: dict[str, dict[str, object]] = {}
     skills_dir = root / "skills"
+    package_resources: dict[str, set[str]] = {}
     if skills_dir.is_dir():
+        for resources_dir in skills_dir.glob("*/resources"):
+            package_resources[resources_dir.parent.name] = {
+                f.relative_to(resources_dir).as_posix() for f in resources_dir.rglob("*.md")
+            }
         for skill_md in sorted(skills_dir.glob("*/SKILL.md")):
             stats["skills"] += 1
             skill_dir = skill_md.parent
@@ -197,46 +208,37 @@ def lint_package(root: Path) -> tuple[list[Finding], dict[str, int]]:
                     )
                 )
 
-            # Resource checks (1-level-deep & orphan/broken)
-            refs_in_skill = find_local_resource_refs(body)
+            # Resource checks (orphan/broken). A resource reachable only through
+            # another resource is an orphan, which keeps disclosure one level deep;
+            # cross-links between resources SKILL.md already links are fine.
             resources_dir = skill_dir / "resources"
-            disk_resources: set[str] = set()
-            if resources_dir.is_dir():
-                for res_file in sorted(resources_dir.rglob("*.md")):
-                    rel_res = res_file.relative_to(resources_dir).as_posix()
-                    disk_resources.add(rel_res)
+            disk_resources = package_resources.get(skill_dir.name, set())
+            for res_file in sorted(resources_dir.rglob("*.md")) if resources_dir.is_dir() else []:
+                for line_no, prose in iter_prose_lines(res_file.read_text(encoding="utf-8"), 1):
+                    check_prose_line(res_file, line_no, prose, findings, check_bare_at=True)
 
-                    # Multi-hop check: resource referencing another local resource
-                    res_text = res_file.read_text(encoding="utf-8")
-                    res_refs = find_local_resource_refs(res_text) - {rel_res}
-                    if res_refs:
-                        findings.append(
-                            Finding(
-                                "WARN",
-                                "MULTI_HOP_RESOURCE",
-                                res_file,
-                                None,
-                                f"links to other resources ({', '.join(sorted(res_refs))}); keep disclosure 1 level deep from SKILL.md",
-                            )
-                        )
-
-                    # Prose lints inside resources
-                    for line_no, prose in iter_prose_lines(res_text, 1):
-                        check_prose_line(res_file, line_no, prose, findings, check_bare_at=True)
-
-            for ref in sorted(refs_in_skill):
-                if ref not in disk_resources:
+            referenced: set[str] = set()
+            for named, ref in find_resource_refs(body):
+                other = named if named and named != skill_dir.name else None
+                if other and ref in package_resources.get(other, set()):
+                    continue
+                if ref in disk_resources:
+                    referenced.add(ref)
+                elif other and not (skills_dir / other).is_dir():
+                    continue  # another package's skill; its resources aren't visible here
+                else:
+                    owner = f"/{other}'s " if other else ""
                     findings.append(
                         Finding(
                             "ERROR",
                             "BROKEN_RESOURCE",
                             skill_md,
                             None,
-                            f"references missing resource resources/{ref}",
+                            f"references missing resource {owner}resources/{ref}",
                         )
                     )
 
-            for orphan in sorted(disk_resources - refs_in_skill):
+            for orphan in sorted(disk_resources - referenced):
                 findings.append(
                     Finding(
                         "ERROR",
